@@ -54,9 +54,9 @@ typedef void(^FXEventHandler)(void);
 - (void)fx_setCenterItemClickedEventHandler:(FXEventHandler)handler;
 
 /**
- *  自定义TabBar的背景 (默认为iOS7 translucent风格). 该方法在UITabBarController viewDidLoad方法发生之前调用才有效
+ *  set TabBar backgroundImage (Please call this method before UITabBarController viewDidLoad)
  *
- *  @param image 背景Image
+ *  @param image backgroundImage
  */
 - (void)fx_setTabBarBackgroundImage:(UIImage *)image;
 

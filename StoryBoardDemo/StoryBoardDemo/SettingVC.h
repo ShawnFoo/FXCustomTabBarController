@@ -1,15 +1,13 @@
 //
-//  HomeVC.h
+//  SettingVC.h
 //  StoryBoardDemo
 //
-//  Created by ShawnFoo on 16/3/2.
+//  Created by ShawnFoo on 16/3/3.
 //  Copyright © 2016年 ShawnFoo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface HomeVC : UITableViewController
-
+@interface SettingVC : UIViewController
 
 @end
-

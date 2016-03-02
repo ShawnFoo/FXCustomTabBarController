@@ -1,0 +1,17 @@
+//
+//  DemoPrefixHeader.pch
+//  StoryBoardDemo
+//
+//  Created by ShawnFoo on 16/3/3.
+//  Copyright © 2016年 ShawnFoo. All rights reserved.
+//
+
+#ifndef DemoPrefixHeader_pch
+#define DemoPrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define KeyWindow [UIApplication sharedApplication].keyWindow
+
+#endif /* DemoPrefixHeader_pch */

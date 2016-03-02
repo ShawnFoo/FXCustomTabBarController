@@ -16,6 +16,8 @@
 		297F02021C85F7270019B4E4 /* FXTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 297F01FA1C85F7270019B4E4 /* FXTabBar.m */; };
 		297F02031C85F7270019B4E4 /* FXTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 297F01FD1C85F7270019B4E4 /* FXTabBarItem.m */; };
 		297F02051C85F7270019B4E4 /* UITabBarController+FXCustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 297F02011C85F7270019B4E4 /* UITabBarController+FXCustomTabBar.m */; };
+		29935C6E1C87486200DBD185 /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 29935C6D1C87486200DBD185 /* SettingVC.m */; };
+		29A0FDE91C87304C00C64A05 /* HomeVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A0FDE81C87304C00C64A05 /* HomeVM.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,11 @@
 		297F01FD1C85F7270019B4E4 /* FXTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXTabBarItem.m; sourceTree = "<group>"; };
 		297F02001C85F7270019B4E4 /* UITabBarController+FXCustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+FXCustomTabBar.h"; sourceTree = "<group>"; };
 		297F02011C85F7270019B4E4 /* UITabBarController+FXCustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+FXCustomTabBar.m"; sourceTree = "<group>"; };
+		29935C6C1C87486200DBD185 /* SettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
+		29935C6D1C87486200DBD185 /* SettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
+		29935C711C874A4E00DBD185 /* DemoPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoPrefixHeader.pch; sourceTree = "<group>"; };
+		29A0FDE71C87304C00C64A05 /* HomeVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVM.h; sourceTree = "<group>"; };
+		29A0FDE81C87304C00C64A05 /* HomeVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVM.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,14 +76,15 @@
 			isa = PBXGroup;
 			children = (
 				297F01F81C85F7270019B4E4 /* FXCustomTabBarController */,
+				29935C721C874AA900DBD185 /* HomeModule */,
+				29935C731C874AB200DBD185 /* SettingModule */,
 				297F01E41C85F7080019B4E4 /* AppDelegate.h */,
 				297F01E51C85F7080019B4E4 /* AppDelegate.m */,
-				297F01E71C85F7080019B4E4 /* HomeVC.h */,
-				297F01E81C85F7080019B4E4 /* HomeVC.m */,
 				297F01EA1C85F7080019B4E4 /* Main.storyboard */,
 				297F01ED1C85F7080019B4E4 /* Assets.xcassets */,
 				297F01EF1C85F7080019B4E4 /* LaunchScreen.storyboard */,
 				297F01F21C85F7080019B4E4 /* Info.plist */,
+				29935C711C874A4E00DBD185 /* DemoPrefixHeader.pch */,
 				297F01E11C85F7080019B4E4 /* Supporting Files */,
 			);
 			path = StoryBoardDemo;
@@ -103,6 +111,26 @@
 			);
 			name = FXCustomTabBarController;
 			path = ../../FXCustomTabBarController;
+			sourceTree = "<group>";
+		};
+		29935C721C874AA900DBD185 /* HomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				297F01E71C85F7080019B4E4 /* HomeVC.h */,
+				297F01E81C85F7080019B4E4 /* HomeVC.m */,
+				29A0FDE71C87304C00C64A05 /* HomeVM.h */,
+				29A0FDE81C87304C00C64A05 /* HomeVM.m */,
+			);
+			name = HomeModule;
+			sourceTree = "<group>";
+		};
+		29935C731C874AB200DBD185 /* SettingModule */ = {
+			isa = PBXGroup;
+			children = (
+				29935C6C1C87486200DBD185 /* SettingVC.h */,
+				29935C6D1C87486200DBD185 /* SettingVC.m */,
+			);
+			name = SettingModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,10 +203,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29A0FDE91C87304C00C64A05 /* HomeVM.m in Sources */,
 				297F02051C85F7270019B4E4 /* UITabBarController+FXCustomTabBar.m in Sources */,
 				297F02031C85F7270019B4E4 /* FXTabBarItem.m in Sources */,
 				297F01E91C85F7080019B4E4 /* HomeVC.m in Sources */,
 				297F01E61C85F7080019B4E4 /* AppDelegate.m in Sources */,
+				29935C6E1C87486200DBD185 /* SettingVC.m in Sources */,
 				297F01E31C85F7080019B4E4 /* main.m in Sources */,
 				297F02021C85F7270019B4E4 /* FXTabBar.m in Sources */,
 			);
@@ -290,6 +320,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/StoryBoardDemo/DemoPrefixHeader.pch";
 				INFOPLIST_FILE = StoryBoardDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ShawnFoo.StoryBoardDemo;
@@ -301,6 +333,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/StoryBoardDemo/DemoPrefixHeader.pch";
 				INFOPLIST_FILE = StoryBoardDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ShawnFoo.StoryBoardDemo;
@@ -327,6 +361,7 @@
 				297F01F71C85F7080019B4E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

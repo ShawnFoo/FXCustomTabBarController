@@ -11,7 +11,7 @@
 #define FXTabBarAppearanceConfigs_h
 
 // ====================    Optional Contants Start    ====================
-// Please feel free to comment out some properties if you want the system's default appearance
+// Please feel free to comment out some properties if you prefer the system's default appearance
 
 // the height of view for each childViewController of UITabBarController will vary with the tabBar height
 #define FX_TabBarHeight 40
@@ -39,6 +39,9 @@
 
 // tiny badge color(hex number of rgb color), default is redColor
 #define FX_TinyBadgeColor UIColorFromHexRGB(0xFFA500)
+
+// remove tabBar top shadow if this value bigger than 0; otherwise, keep system style
+#define FX_RemoveTabBarTopShadow 0
 
 // ====================    Optional Contants End    ====================
 
@@ -70,12 +73,17 @@ green:((float)((rgbValue&0xFF00)>>8))/255.0 \
 blue:((float)(rgbValue&0xFF))/255.0 \
 alpha:1])
 
-#ifdef DEBUG
-#define RaiseExceptionWithFormat(formatStr, ...) \
-[NSException raise:NSGenericException format:formatStr, ##__VA_ARGS__];
-#else
-#define RaiseExceptionWithFormat(formatStr, ...) do {} while(0)
-#endif
+#define FXSwizzleInstanceMethod(class, originalSEL, swizzleSEL) {\
+Method originalMethod = class_getInstanceMethod(class, originalSEL);\
+Method swizzleMethod = class_getInstanceMethod(class, swizzleSEL);\
+BOOL didAddMethod = class_addMethod(class, originalSEL, method_getImplementation(swizzleMethod), method_getTypeEncoding(swizzleMethod));\
+if (didAddMethod) {\
+class_replaceMethod(class, swizzleSEL, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));\
+}\
+else {\
+method_exchangeImplementations(originalMethod, swizzleMethod);\
+}\
+}
 
 //  ====================      Marco Function End       ====================
 

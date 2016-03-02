@@ -26,26 +26,18 @@
         
         Class class = [self class];
         
-        void (^swizzleMethod)(SEL, SEL) = ^(SEL originalSEL, SEL swizzleSEL) {
-            
-            Method originalMethod = class_getInstanceMethod(class, originalSEL);
-            Method swizzleMethod = class_getInstanceMethod(class, swizzleSEL);
-            
-            BOOL didAddMethod = class_addMethod(class, originalSEL, method_getImplementation(swizzleMethod), method_getTypeEncoding(swizzleMethod));
-            
-            if (didAddMethod) {
-                
-                class_replaceMethod(class, swizzleSEL, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
-            }
-            else {
-                
-                method_exchangeImplementations(originalMethod, swizzleMethod);
-            }
-        };
-        
-        swizzleMethod(@selector(viewDidLoad), @selector(fx_viewDidLoad));
-        swizzleMethod(@selector(viewWillAppear:), @selector(fx_viewWillAppear:));
-        swizzleMethod(@selector(setSelectedViewController:), @selector(fx_setSelectedViewController:));
+        FXSwizzleInstanceMethod(class,
+                                @selector(viewDidLoad),
+                                @selector(fx_viewDidLoad));
+        FXSwizzleInstanceMethod(class,
+                                @selector(viewWillAppear:),
+                                @selector(fx_viewWillAppear:));
+        FXSwizzleInstanceMethod(class,
+                                @selector(setSelectedViewController:),
+                                @selector(fx_setSelectedViewController:));
+        FXSwizzleInstanceMethod(class,
+                                @selector(setSelectedIndex:),
+                                @selector(fx_setSelectedIndex:));
     });
 }
 
@@ -76,10 +68,22 @@
     
     NSInteger selectedIndex = [self.viewControllers indexOfObject:selectedViewController];
     if (NSNotFound != selectedIndex) {
-        
-        FXTabBar *tabBar = (FXTabBar *)self.tabBar;
-        tabBar.selectedItemIndex = selectedIndex;
+        [self fx_setSelectedItemAtIndex:selectedIndex];
     }
+}
+
+- (void)fx_setSelectedIndex:(NSUInteger)selectedIndex {
+    [self fx_setSelectedIndex:selectedIndex];
+    
+    if (selectedIndex < self.viewControllers.count) {
+        [self fx_setSelectedItemAtIndex:selectedIndex];
+    }
+}
+
+- (void)fx_setSelectedItemAtIndex:(NSUInteger)selectedIndex {
+    
+    FXTabBar *tabBar = (FXTabBar *)self.tabBar;
+    tabBar.selectedItemIndex = selectedIndex;
 }
 
 #pragma mark - Setup CenterItem
@@ -183,6 +187,9 @@
     if ((backgroundImage = self.fx_tabBarBackgroundImage)) {
         tabBar.backgroundImage = backgroundImage;
     }
+#if FX_RemoveTabBarTopShadow
+    tabBar.shadowImage = [UIImage new];
+#endif
     
     // KVC: replace the tabBar created by system with custom tabBar
     [self setValue:tabBar forKey:@"tabBar"];

@@ -253,7 +253,7 @@ static void* kFXTabBarItemContext;
     }
     else {// if existed, only change the frame of item
         
-        [UIView animateWithDuration:0.33
+        [UIView animateWithDuration:0.3
                               delay:0
              usingSpringWithDamping:0.66
               initialSpringVelocity:1
@@ -278,7 +278,7 @@ static void* kFXTabBarItemContext;
     if (_badgeLb) {
         
         [UIView transitionWithView:self
-                          duration:0.4
+                          duration:0.3
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^
         {
@@ -351,7 +351,7 @@ static void* kFXTabBarItemContext;
         _tinyBadge.alpha = 0.0;
         [self addSubview:_tinyBadge];
         
-        [UIView animateWithDuration:0.33
+        [UIView animateWithDuration:0.3
                               delay:0
              usingSpringWithDamping:0.6
               initialSpringVelocity:1
@@ -368,7 +368,7 @@ static void* kFXTabBarItemContext;
     
     if (_tinyBadge) {
 
-        [UIView animateWithDuration:0.33 animations:^{
+        [UIView animateWithDuration:0.3 animations:^{
             _tinyBadge.alpha = 0.0;
             _tinyBadge.transform = CGAffineTransformMakeScale(0.1, 0.1);
         } completion:^(BOOL finished){
