@@ -10,6 +10,7 @@
 #import <objc/runtime.h>
 #import "FXTabBar.h"
 #import "FXTabBarAppearanceConfigs.h"
+#import "FXDeallocMonitor.h"
 
 @interface UITabBarController () <FXTabBarDelegate>
 
@@ -46,6 +47,7 @@
 - (void)fx_viewDidLoad {
     [self fx_viewDidLoad];
     
+    [FXDeallocMonitor addMonitorToObj:self];
     [self fx_setupTabBar];
 }
 
@@ -61,6 +63,14 @@
             [subview removeFromSuperview];
         }
     }
+}
+
+- (void)fx_setViewControllers:(NSArray *)viewControllers {
+    
+}
+
+- (void)fx_setViewControllers:(NSArray *)viewControllers animated:(BOOL)animated {
+    
 }
 
 - (void)fx_setSelectedViewController:(UIViewController *)selectedViewController {
@@ -139,7 +149,7 @@
         centerItem.titleLabel.font = [UIFont systemFontOfSize:FX_ItemTitleFontSize];
 #endif
     }
-    
+    [FXDeallocMonitor addMonitorToObj:centerItem withDesc:@"centerItem has been deallcated"];
     objc_setAssociatedObject(self, @selector(fx_centerItem), centerItem, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

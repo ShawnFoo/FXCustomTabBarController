@@ -7,6 +7,7 @@
 //
 
 #import "FXTabBar.h"
+#import "FXDeallocMonitor.h"
 #import "FXTabBarItem.h"
 #import "FXTabBarAppearanceConfigs.h"
 
@@ -34,6 +35,7 @@
     FXTabBar *tabBar = [[FXTabBar alloc] init];
     tabBar.tabbarItems = items;
     tabBar.centerItem = centerItem;
+    [FXDeallocMonitor addMonitorToObj:tabBar];
     
     return tabBar;
 }

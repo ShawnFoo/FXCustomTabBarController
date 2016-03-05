@@ -7,20 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		293A64FD1C8B2CF800F9A96D /* FXDeallocMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 293A64F51C8B2CF800F9A96D /* FXDeallocMonitor.m */; };
+		293A64FE1C8B2CF800F9A96D /* FXTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 293A64F71C8B2CF800F9A96D /* FXTabBar.m */; };
+		293A64FF1C8B2CF800F9A96D /* FXTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 293A64FA1C8B2CF800F9A96D /* FXTabBarItem.m */; };
+		293A65001C8B2CF800F9A96D /* UITabBarController+FXCustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 293A64FC1C8B2CF800F9A96D /* UITabBarController+FXCustomTabBar.m */; };
+		294540D31C8AB412004E76C0 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 294540D21C8AB412004E76C0 /* Launch Screen.xib */; };
 		297F01E31C85F7080019B4E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 297F01E21C85F7080019B4E4 /* main.m */; };
 		297F01E61C85F7080019B4E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 297F01E51C85F7080019B4E4 /* AppDelegate.m */; };
 		297F01E91C85F7080019B4E4 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 297F01E81C85F7080019B4E4 /* HomeVC.m */; };
 		297F01EC1C85F7080019B4E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 297F01EA1C85F7080019B4E4 /* Main.storyboard */; };
 		297F01EE1C85F7080019B4E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 297F01ED1C85F7080019B4E4 /* Assets.xcassets */; };
-		297F01F11C85F7080019B4E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 297F01EF1C85F7080019B4E4 /* LaunchScreen.storyboard */; };
-		297F02021C85F7270019B4E4 /* FXTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 297F01FA1C85F7270019B4E4 /* FXTabBar.m */; };
-		297F02031C85F7270019B4E4 /* FXTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 297F01FD1C85F7270019B4E4 /* FXTabBarItem.m */; };
-		297F02051C85F7270019B4E4 /* UITabBarController+FXCustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 297F02011C85F7270019B4E4 /* UITabBarController+FXCustomTabBar.m */; };
 		29935C6E1C87486200DBD185 /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 29935C6D1C87486200DBD185 /* SettingVC.m */; };
 		29A0FDE91C87304C00C64A05 /* HomeVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A0FDE81C87304C00C64A05 /* HomeVM.m */; };
+		29E4472F1C8B063A001ECA5D /* NSObject+FXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E4472E1C8B063A001ECA5D /* NSObject+FXAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		293A64F41C8B2CF800F9A96D /* FXDeallocMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXDeallocMonitor.h; sourceTree = "<group>"; };
+		293A64F51C8B2CF800F9A96D /* FXDeallocMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXDeallocMonitor.m; sourceTree = "<group>"; };
+		293A64F61C8B2CF800F9A96D /* FXTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXTabBar.h; sourceTree = "<group>"; };
+		293A64F71C8B2CF800F9A96D /* FXTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXTabBar.m; sourceTree = "<group>"; };
+		293A64F81C8B2CF800F9A96D /* FXTabBarAppearanceConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXTabBarAppearanceConfigs.h; sourceTree = "<group>"; };
+		293A64F91C8B2CF800F9A96D /* FXTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXTabBarItem.h; sourceTree = "<group>"; };
+		293A64FA1C8B2CF800F9A96D /* FXTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXTabBarItem.m; sourceTree = "<group>"; };
+		293A64FB1C8B2CF800F9A96D /* UITabBarController+FXCustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+FXCustomTabBar.h"; sourceTree = "<group>"; };
+		293A64FC1C8B2CF800F9A96D /* UITabBarController+FXCustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+FXCustomTabBar.m"; sourceTree = "<group>"; };
+		294540D21C8AB412004E76C0 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 		297F01DE1C85F7080019B4E4 /* StoryBoardDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryBoardDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		297F01E21C85F7080019B4E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		297F01E41C85F7080019B4E4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -29,20 +41,14 @@
 		297F01E81C85F7080019B4E4 /* HomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 		297F01EB1C85F7080019B4E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		297F01ED1C85F7080019B4E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		297F01F01C85F7080019B4E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		297F01F21C85F7080019B4E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		297F01F91C85F7270019B4E4 /* FXTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXTabBar.h; sourceTree = "<group>"; };
-		297F01FA1C85F7270019B4E4 /* FXTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXTabBar.m; sourceTree = "<group>"; };
-		297F01FB1C85F7270019B4E4 /* FXTabBarAppearanceConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXTabBarAppearanceConfigs.h; sourceTree = "<group>"; };
-		297F01FC1C85F7270019B4E4 /* FXTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXTabBarItem.h; sourceTree = "<group>"; };
-		297F01FD1C85F7270019B4E4 /* FXTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXTabBarItem.m; sourceTree = "<group>"; };
-		297F02001C85F7270019B4E4 /* UITabBarController+FXCustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+FXCustomTabBar.h"; sourceTree = "<group>"; };
-		297F02011C85F7270019B4E4 /* UITabBarController+FXCustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+FXCustomTabBar.m"; sourceTree = "<group>"; };
 		29935C6C1C87486200DBD185 /* SettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
 		29935C6D1C87486200DBD185 /* SettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
 		29935C711C874A4E00DBD185 /* DemoPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoPrefixHeader.pch; sourceTree = "<group>"; };
 		29A0FDE71C87304C00C64A05 /* HomeVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVM.h; sourceTree = "<group>"; };
 		29A0FDE81C87304C00C64A05 /* HomeVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVM.m; sourceTree = "<group>"; };
+		29E4472D1C8B063A001ECA5D /* NSObject+FXAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FXAlertView.h"; sourceTree = "<group>"; };
+		29E4472E1C8B063A001ECA5D /* NSObject+FXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FXAlertView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		293A64F21C8B2CDF00F9A96D /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				293A64F31C8B2CF800F9A96D /* FXCustomTabBarController */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		293A64F31C8B2CF800F9A96D /* FXCustomTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				293A64F81C8B2CF800F9A96D /* FXTabBarAppearanceConfigs.h */,
+				293A64FB1C8B2CF800F9A96D /* UITabBarController+FXCustomTabBar.h */,
+				293A64FC1C8B2CF800F9A96D /* UITabBarController+FXCustomTabBar.m */,
+				293A64F61C8B2CF800F9A96D /* FXTabBar.h */,
+				293A64F71C8B2CF800F9A96D /* FXTabBar.m */,
+				293A64F91C8B2CF800F9A96D /* FXTabBarItem.h */,
+				293A64FA1C8B2CF800F9A96D /* FXTabBarItem.m */,
+				293A64F41C8B2CF800F9A96D /* FXDeallocMonitor.h */,
+				293A64F51C8B2CF800F9A96D /* FXDeallocMonitor.m */,
+			);
+			name = FXCustomTabBarController;
+			path = ../../FXCustomTabBarController;
+			sourceTree = "<group>";
+		};
+		293A65011C8B2D0100F9A96D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				29935C721C874AA900DBD185 /* HomeModule */,
+				29935C731C874AB200DBD185 /* SettingModule */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
 		297F01D51C85F7080019B4E4 = {
 			isa = PBXGroup;
 			children = (
@@ -75,14 +115,14 @@
 		297F01E01C85F7080019B4E4 /* StoryBoardDemo */ = {
 			isa = PBXGroup;
 			children = (
-				297F01F81C85F7270019B4E4 /* FXCustomTabBarController */,
-				29935C721C874AA900DBD185 /* HomeModule */,
-				29935C731C874AB200DBD185 /* SettingModule */,
+				293A65011C8B2D0100F9A96D /* Modules */,
+				293A64F21C8B2CDF00F9A96D /* Vendor */,
+				29E447301C8B0648001ECA5D /* Utils */,
 				297F01E41C85F7080019B4E4 /* AppDelegate.h */,
 				297F01E51C85F7080019B4E4 /* AppDelegate.m */,
 				297F01EA1C85F7080019B4E4 /* Main.storyboard */,
+				294540D21C8AB412004E76C0 /* Launch Screen.xib */,
 				297F01ED1C85F7080019B4E4 /* Assets.xcassets */,
-				297F01EF1C85F7080019B4E4 /* LaunchScreen.storyboard */,
 				297F01F21C85F7080019B4E4 /* Info.plist */,
 				29935C711C874A4E00DBD185 /* DemoPrefixHeader.pch */,
 				297F01E11C85F7080019B4E4 /* Supporting Files */,
@@ -96,21 +136,6 @@
 				297F01E21C85F7080019B4E4 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		297F01F81C85F7270019B4E4 /* FXCustomTabBarController */ = {
-			isa = PBXGroup;
-			children = (
-				297F01FB1C85F7270019B4E4 /* FXTabBarAppearanceConfigs.h */,
-				297F02001C85F7270019B4E4 /* UITabBarController+FXCustomTabBar.h */,
-				297F02011C85F7270019B4E4 /* UITabBarController+FXCustomTabBar.m */,
-				297F01F91C85F7270019B4E4 /* FXTabBar.h */,
-				297F01FA1C85F7270019B4E4 /* FXTabBar.m */,
-				297F01FC1C85F7270019B4E4 /* FXTabBarItem.h */,
-				297F01FD1C85F7270019B4E4 /* FXTabBarItem.m */,
-			);
-			name = FXCustomTabBarController;
-			path = ../../FXCustomTabBarController;
 			sourceTree = "<group>";
 		};
 		29935C721C874AA900DBD185 /* HomeModule */ = {
@@ -131,6 +156,15 @@
 				29935C6D1C87486200DBD185 /* SettingVC.m */,
 			);
 			name = SettingModule;
+			sourceTree = "<group>";
+		};
+		29E447301C8B0648001ECA5D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				29E4472D1C8B063A001ECA5D /* NSObject+FXAlertView.h */,
+				29E4472E1C8B063A001ECA5D /* NSObject+FXAlertView.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,9 +224,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				297F01F11C85F7080019B4E4 /* LaunchScreen.storyboard in Resources */,
 				297F01EE1C85F7080019B4E4 /* Assets.xcassets in Resources */,
 				297F01EC1C85F7080019B4E4 /* Main.storyboard in Resources */,
+				294540D31C8AB412004E76C0 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,14 +237,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				293A64FD1C8B2CF800F9A96D /* FXDeallocMonitor.m in Sources */,
+				293A64FF1C8B2CF800F9A96D /* FXTabBarItem.m in Sources */,
 				29A0FDE91C87304C00C64A05 /* HomeVM.m in Sources */,
-				297F02051C85F7270019B4E4 /* UITabBarController+FXCustomTabBar.m in Sources */,
-				297F02031C85F7270019B4E4 /* FXTabBarItem.m in Sources */,
 				297F01E91C85F7080019B4E4 /* HomeVC.m in Sources */,
+				293A65001C8B2CF800F9A96D /* UITabBarController+FXCustomTabBar.m in Sources */,
 				297F01E61C85F7080019B4E4 /* AppDelegate.m in Sources */,
 				29935C6E1C87486200DBD185 /* SettingVC.m in Sources */,
 				297F01E31C85F7080019B4E4 /* main.m in Sources */,
-				297F02021C85F7270019B4E4 /* FXTabBar.m in Sources */,
+				29E4472F1C8B063A001ECA5D /* NSObject+FXAlertView.m in Sources */,
+				293A64FE1C8B2CF800F9A96D /* FXTabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,14 +259,6 @@
 				297F01EB1C85F7080019B4E4 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		297F01EF1C85F7080019B4E4 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				297F01F01C85F7080019B4E4 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -272,7 +300,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -309,7 +337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -320,6 +348,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/StoryBoardDemo/DemoPrefixHeader.pch";
 				INFOPLIST_FILE = StoryBoardDemo/Info.plist;
@@ -333,6 +362,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/StoryBoardDemo/DemoPrefixHeader.pch";
 				INFOPLIST_FILE = StoryBoardDemo/Info.plist;

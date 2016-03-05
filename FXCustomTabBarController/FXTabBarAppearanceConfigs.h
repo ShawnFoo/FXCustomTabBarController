@@ -23,7 +23,7 @@
 #define FX_BadgeXAsixOffset -4
 
 // the offset for the postion of badge(also  tinyBadge) in Y-Asix. Negetive num will make badge move up; otherwise, move down
-#define FX_BadgeYAsixOffset 0
+#define FX_BadgeYAsixOffset 2
 
 // item title color for UIControlStateNormal(hex number of rgb color)
 #define FX_ItemTitleColor UIColorFromHexRGB(0xC0C0C0)

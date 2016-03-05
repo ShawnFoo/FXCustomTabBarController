@@ -8,10 +8,9 @@
 
 #import "FXTabBarItem.h"
 #import "FXTabBarAppearanceConfigs.h"
+#import "FXDeallocMonitor.h"
 
-#define FXStringFromSelectorName(name) NSStringFromSelector(@selector(name))
-
-#pragma mark - Constants
+#define StringFromSelectorName(name) NSStringFromSelector(@selector(name))
 
 static void* kFXTabBarItemContext;
 
@@ -19,7 +18,7 @@ static void* kFXTabBarItemContext;
     UIView *_tinyBadge;
 }
 
-@property (weak, nonatomic) UITabBarItem *tabBarItem;
+@property (strong, nonatomic) UITabBarItem *tabBarItem;
 @property (strong, nonatomic) UILabel *badgeLb;
 
 @end
@@ -34,6 +33,7 @@ static void* kFXTabBarItemContext;
     if ([tabBarItem isKindOfClass:[UITabBarItem class]]) {
 
         item = [FXTabBarItem buttonWithType:UIButtonTypeCustom];
+        [FXDeallocMonitor addMonitorToObj:item];
 
         item.imageView.contentMode = UIViewContentModeCenter;
         item.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -52,25 +52,25 @@ static void* kFXTabBarItemContext;
         NSKeyValueObservingOptions options = NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew;
         
         [tabBarItem addObserver:item
-                     forKeyPath:FXStringFromSelectorName(title)
+                     forKeyPath:StringFromSelectorName(title)
                         options:options
                         context:&kFXTabBarItemContext];
         [tabBarItem addObserver:item
-                     forKeyPath:FXStringFromSelectorName(badgeValue)
+                     forKeyPath:StringFromSelectorName(badgeValue)
                         options:options
                         context:&kFXTabBarItemContext];
         [tabBarItem addObserver:item
-                     forKeyPath:FXStringFromSelectorName(image)
+                     forKeyPath:StringFromSelectorName(image)
                         options:options
                         context:&kFXTabBarItemContext];
         [tabBarItem addObserver:item
-                     forKeyPath:FXStringFromSelectorName(selectedImage)
+                     forKeyPath:StringFromSelectorName(selectedImage)
                         options:options
                         context:&kFXTabBarItemContext];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
         [tabBarItem addObserver:item
-                     forKeyPath:FXStringFromSelectorName(fx_tinyBadgeVisible)
+                     forKeyPath:StringFromSelectorName(fx_tinyBadgeVisible)
                         options:options
                         context:&kFXTabBarItemContext];
 #pragma clang diagnostic pop
@@ -80,13 +80,13 @@ static void* kFXTabBarItemContext;
 
 - (void)dealloc {
     
-    [_tabBarItem removeObserver:self forKeyPath:FXStringFromSelectorName(badgeValue)];
-    [_tabBarItem removeObserver:self forKeyPath:FXStringFromSelectorName(title)];
-    [_tabBarItem removeObserver:self forKeyPath:FXStringFromSelectorName(image)];
-    [_tabBarItem removeObserver:self forKeyPath:FXStringFromSelectorName(selectedImage)];
+    [_tabBarItem removeObserver:self forKeyPath:StringFromSelectorName(badgeValue)];
+    [_tabBarItem removeObserver:self forKeyPath:StringFromSelectorName(title)];
+    [_tabBarItem removeObserver:self forKeyPath:StringFromSelectorName(image)];
+    [_tabBarItem removeObserver:self forKeyPath:StringFromSelectorName(selectedImage)];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
-    [_tabBarItem removeObserver:self forKeyPath:FXStringFromSelectorName(fx_tinyBadgeVisible)];
+    [_tabBarItem removeObserver:self forKeyPath:StringFromSelectorName(fx_tinyBadgeVisible)];
 #pragma clang diagnostic pop
 }
 
@@ -120,19 +120,19 @@ static void* kFXTabBarItemContext;
 
     if (context == &kFXTabBarItemContext) {
         
-        if ([keyPath isEqualToString:FXStringFromSelectorName(badgeValue)]) {
+        if ([keyPath isEqualToString:StringFromSelectorName(badgeValue)]) {
             
             [self updateBadgeValue:_tabBarItem.badgeValue];
         }
-        else if ([keyPath isEqualToString:FXStringFromSelectorName(image)]) {
+        else if ([keyPath isEqualToString:StringFromSelectorName(image)]) {
             
             [self setImage:_tabBarItem.image forState:UIControlStateNormal];
         }
-        else if ([keyPath isEqualToString:FXStringFromSelectorName(selectedImage)]) {
+        else if ([keyPath isEqualToString:StringFromSelectorName(selectedImage)]) {
 
             [self setImage:_tabBarItem.selectedImage forState:UIControlStateSelected];
         }
-        else if ([keyPath isEqualToString:FXStringFromSelectorName(title)]) {
+        else if ([keyPath isEqualToString:StringFromSelectorName(title)]) {
            
             [self setTitle:_tabBarItem.title forState:UIControlStateNormal];
 #ifdef FX_ItemTitleColor 
@@ -155,7 +155,7 @@ static void* kFXTabBarItemContext;
         }
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
-        else if ([keyPath isEqualToString:FXStringFromSelectorName(fx_tinyBadgeVisible)]) {
+        else if ([keyPath isEqualToString:StringFromSelectorName(fx_tinyBadgeVisible)]) {
             
             if ([_tabBarItem respondsToSelector:@selector(fx_tinyBadgeVisible)]) {
                 
@@ -192,6 +192,7 @@ static void* kFXTabBarItemContext;
     if (!_badgeLb) {
         
         _badgeLb = [UILabel new];
+        [FXDeallocMonitor addMonitorToObj:_badgeLb withDesc:@"badgeLabel has been deallocated"];
          _badgeLb.font = [UIFont systemFontOfSize:FX_ItemBadgeFontSize];
         _badgeLb.textColor = [UIColor whiteColor];
         _badgeLb.textAlignment = NSTextAlignmentCenter;
@@ -316,6 +317,7 @@ static void* kFXTabBarItemContext;
     if (!_tinyBadge) {
         
         _tinyBadge = [UIView new];
+        [FXDeallocMonitor addMonitorToObj:_tinyBadge withDesc:@"tinyBadge has been deallocated"];
 #ifdef FX_TinyBadgeColor
         _tinyBadge.backgroundColor = FX_TinyBadgeColor;
 #else
