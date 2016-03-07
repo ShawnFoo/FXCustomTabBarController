@@ -210,7 +210,18 @@
 
 - (void)fx_setTabBarBackgroundImage:(UIImage *)image {
     NSParameterAssert(image);
-    objc_setAssociatedObject(self, @selector(fx_tabBarBackgroundImage), image, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    UIImage *scaledImage = image;
+#ifdef FX_TabBarHeight
+    if (FX_TabBarHeight != image.size.height) {
+        CGSize size = CGSizeMake(image.size.width, FX_TabBarHeight);
+        UIGraphicsBeginImageContextWithOptions(size, YES, 0);
+        [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+        scaledImage =  UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+#endif
+    objc_setAssociatedObject(self, @selector(fx_tabBarBackgroundImage), scaledImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (UIImage *)fx_tabBarBackgroundImage {
@@ -231,7 +242,7 @@
 
 @end
 
-#pragma mark - UITabBarItem+TinyBadge
+#pragma mark - UITabBarItem + TinyBadge
 
 @implementation UITabBarItem (TinyBadge)
 

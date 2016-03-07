@@ -157,6 +157,19 @@
     }
 }
 
+- (void)setupTabBarBackground {
+
+    BOOL hasBackground = self.tabBarController.tabBar.backgroundImage;
+    if (!hasBackground) {
+        
+        UITabBarController *tabBarController = [self.storyboard instantiateViewControllerWithIdentifier:@"FXTabBarController"];
+        [tabBarController fx_setupCenterItemWithImage:[UIImage imageNamed:@"add"]];
+        [tabBarController fx_setTabBarBackgroundImage:[UIImage imageNamed:@"background"]];
+        
+        KeyWindow.rootViewController = tabBarController;
+    }
+}
+
 - (void)releaseUITabBarController {
     
     [self presentConfirmViewWithTitle:@"TestRelease"

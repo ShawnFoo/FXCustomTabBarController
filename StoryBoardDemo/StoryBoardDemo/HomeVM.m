@@ -47,16 +47,20 @@ NSString *const HomeVM_ActionNameKey = @"HomeVM_ActionNameKey";
                  HomeVM_ActionNameKey: @"changeSelectedIndex"
                  },
              @{
-                 HomeVM_TitleKey :@"CenterItemWithoutTitle",
-                 HomeVM_ActionNameKey :@"clearCenterItemTitle"
+                 HomeVM_TitleKey: @"CenterItemWithoutTitle",
+                 HomeVM_ActionNameKey: @"clearCenterItemTitle"
                  },
              @{
-                 HomeVM_TitleKey :@"AllItemsWithoutTitle",
-                 HomeVM_ActionNameKey :@"clearAllItemTitle"
+                 HomeVM_TitleKey: @"AllItemsWithoutTitle",
+                 HomeVM_ActionNameKey: @"clearAllItemTitle"
                  },
              @{
-                 HomeVM_TitleKey :@"TestReleaseUITabBarController",
-                 HomeVM_ActionNameKey :@"releaseUITabBarController"
+                 HomeVM_TitleKey: @"TabBarWithBackground",
+                 HomeVM_ActionNameKey: @"setupTabBarBackground"
+                 },
+             @{
+                 HomeVM_TitleKey: @"TestReleaseUITabBarController",
+                 HomeVM_ActionNameKey: @"releaseUITabBarController"
                  }
              ];
 }

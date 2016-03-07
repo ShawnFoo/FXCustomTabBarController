@@ -40,8 +40,8 @@
 // tiny badge color(hex number of rgb color), default is redColor
 #define FX_TinyBadgeColor UIColorFromHexRGB(0xFFA500)
 
-// remove tabBar top shadow if this value bigger than 0; otherwise, keep system style
-#define FX_RemoveTabBarTopShadow 0
+// remove tabBar top shadow if this value true; otherwise, keep system style
+#define FX_RemoveTabBarTopShadow true
 
 // ====================    Optional Contants End    ====================
 
@@ -65,7 +65,7 @@
 // --------------------      Required Constants End    --------------------
 
 
-// ====================      Marco Function Start       ====================
+// ====================      PreDefined Macro Start       ====================
 
 #define UIColorFromHexRGB(rgbValue) \
 ([UIColor colorWithRed:((float)((rgbValue&0xFF0000)>>16))/255.0 \
@@ -85,6 +85,6 @@ method_exchangeImplementations(originalMethod, swizzleMethod);\
 }\
 }
 
-//  ====================      Marco Function End       ====================
+//  ====================      PreDefined Macro End       ====================
 
 #endif /* FXTabBarAppearanceConfigs_h */

@@ -11,7 +11,7 @@ typedef void (^FXDeallocBlock)(void);
 
 /**
  *  This class can be used to monitor an object's release, to check memory leak(especially when you are using ReactiveCocoa, too many strong weak dances, nested blocks, etc...Xcode Instrument can't detect all retain cycles every time, but FXDeallocMonitor is capable to do it)
- *  Inspired by my mentor Darwin(达文哥) 😁
+ *  Inspired by my mentor DarwinRie(达文哥) 😁
  */
 @interface FXDeallocMonitor : NSObject
 
