@@ -1,0 +1,24 @@
+//
+//  DemoPrefixHeader.pch
+//  StoryBoardDemo
+//
+//  Created by ShawnFoo on 16/3/3.
+//  Copyright © 2016年 ShawnFoo. All rights reserved.
+//
+
+#ifndef DemoPrefixHeader_pch
+#define DemoPrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define MainScreen         [UIScreen mainScreen]
+#define ShareApplication   [UIApplication sharedApplication]
+#define KeyWindow          [UIApplication sharedApplication].keyWindow
+
+#define WeakObj(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
+#define StrongObj(o) autoreleasepool{} __strong typeof(o) o = o##Weak;
+
+#define SysVersionBiggerThaniOS7 [[UIDevice currentDevice].systemVersion floatValue] >= 8.0
+
+#endif /* DemoPrefixHeader_pch */

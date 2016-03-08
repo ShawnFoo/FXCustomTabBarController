@@ -23,21 +23,31 @@
 
 #pragma mark - Factory
 
-+ (instancetype)tabBarWithItems:(NSArray *)items {
-    
-    return [self tabBarWithItems:items centerItem:nil];
-}
-
-+ (instancetype)tabBarWithItems:(NSArray *)items centerItem:(UIButton *)centerItem {
-    
-    NSAssert(items.count, @"No Items passed in!");
++ (instancetype)tabBarWithCenterItem:(UIButton *)centerItem {
     
     FXTabBar *tabBar = [[FXTabBar alloc] init];
-    tabBar.tabbarItems = items;
     tabBar.centerItem = centerItem;
     [FXDeallocMonitor addMonitorToObj:tabBar];
     
     return tabBar;
+}
+
+#pragma mark - Override Methods
+
+- (void)setItems:(NSArray *)items {
+    [self setItems:items animated:NO];
+}
+
+- (void)setItems:(NSArray *)items animated:(BOOL)animated {
+
+    if (items.count > 0) {
+        if (_tabbarItems.count) {
+            for (UIButton *bt in _tabbarItems) {
+                [bt removeFromSuperview];
+            }
+        }
+        self.tabbarItems = items;
+    }
 }
 
 #pragma mark - Layout

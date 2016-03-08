@@ -31,9 +31,6 @@
                                 @selector(viewDidLoad),
                                 @selector(fx_viewDidLoad));
         FXSwizzleInstanceMethod(class,
-                                @selector(viewWillAppear:),
-                                @selector(fx_viewWillAppear:));
-        FXSwizzleInstanceMethod(class,
                                 @selector(setSelectedViewController:),
                                 @selector(fx_setSelectedViewController:));
         FXSwizzleInstanceMethod(class,
@@ -46,31 +43,9 @@
 
 - (void)fx_viewDidLoad {
     [self fx_viewDidLoad];
-    
+
     [FXDeallocMonitor addMonitorToObj:self];
     [self fx_setupTabBar];
-}
-
-- (void)fx_viewWillAppear:(BOOL)animated {
-    [self fx_viewWillAppear:animated];
-    
-    for (UIView *subview in self.tabBar.subviews) {
-        /* 
-         UITabBarButton is an undocumented class, but it's safe to use it below, and definitely won't make any bad effects on your 
-         application review. If you are still worried about side-effects, just changing the UITabBarButton to UIButton😂
-         */
-        if ([subview isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
-            [subview removeFromSuperview];
-        }
-    }
-}
-
-- (void)fx_setViewControllers:(NSArray *)viewControllers {
-    
-}
-
-- (void)fx_setViewControllers:(NSArray *)viewControllers animated:(BOOL)animated {
-    
 }
 
 - (void)fx_setSelectedViewController:(UIViewController *)selectedViewController {
@@ -93,7 +68,9 @@
 - (void)fx_setSelectedItemAtIndex:(NSUInteger)selectedIndex {
     
     FXTabBar *tabBar = (FXTabBar *)self.tabBar;
-    tabBar.selectedItemIndex = selectedIndex;
+    if ([tabBar isKindOfClass:[FXTabBar class]]) {
+        tabBar.selectedItemIndex = selectedIndex;
+    }
 }
 
 #pragma mark - Setup CenterItem
@@ -162,18 +139,20 @@
 
 - (void)fx_setCenterItemClickedEventHandler:(FXEventHandler)handler {
 
-    if (!handler) {
-        [self.fx_centerItem removeTarget:self
-                                  action:@selector(fx_userClickedCenterItem)
-                        forControlEvents:UIControlEventTouchUpInside];
+    if (self.fx_centerItem) {
+        if (!handler) {
+            [self.fx_centerItem removeTarget:self
+                                      action:@selector(fx_userClickedCenterItem)
+                            forControlEvents:UIControlEventTouchUpInside];
+        }
+        else {
+            [self.fx_centerItem addTarget:self
+                                   action:@selector(fx_userClickedCenterItem)
+                         forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        objc_setAssociatedObject(self, @selector(fx_userClickedCenterItem), handler, OBJC_ASSOCIATION_COPY_NONATOMIC);
     }
-    else {
-        [self.fx_centerItem addTarget:self
-                               action:@selector(fx_userClickedCenterItem)
-                     forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    objc_setAssociatedObject(self, @selector(fx_userClickedCenterItem), handler, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 - (void)fx_userClickedCenterItem {
@@ -191,8 +170,8 @@
     if (self.fx_centerItem) {
         NSAssert(self.tabBar.items.count%2 == 0, @"The num of tabBarItem(not include centerItem) can't be odd!");
     }
-        
-    FXTabBar *tabBar = [FXTabBar tabBarWithItems:self.tabBar.items centerItem:self.fx_centerItem];
+    
+    FXTabBar *tabBar = [FXTabBar tabBarWithCenterItem:self.fx_centerItem];
     UIImage *backgroundImage;
     if ((backgroundImage = self.fx_tabBarBackgroundImage)) {
         tabBar.backgroundImage = backgroundImage;

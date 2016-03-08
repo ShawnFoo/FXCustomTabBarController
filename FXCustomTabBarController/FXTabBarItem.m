@@ -300,7 +300,7 @@ static void* kFXTabBarItemContext;
 
     BOOL addPadding = YES;
     // make sure the item is a round if the length of badge value is too short
-    if (size.height > size.width) {
+    if (size.height > size.width && value.length == 1) {
         size.width = size.height;
         addPadding = NO;
     }

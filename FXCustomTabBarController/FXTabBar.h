@@ -22,7 +22,6 @@
 @property (weak, readonly, nonatomic) UIButton *centerItem;
 @property (assign, nonatomic) NSUInteger selectedItemIndex;
 
-+ (instancetype)tabBarWithItems:(NSArray *)items;
-+ (instancetype)tabBarWithItems:(NSArray *)items centerItem:(UIButton *)centerItem;
++ (instancetype)tabBarWithCenterItem:(UIButton *)centerItem;
 
 @end
