@@ -32,6 +32,17 @@
     return tabBar;
 }
 
+#pragma mark - CenterItem
+
+- (void)insertCenterItem:(UIButton *)centerItem {
+
+    if (centerItem) {
+        self.centerItem = centerItem;
+        // trigger layoutSubview in case changing centerItem after UITabBarController viewDidLayoutSubviews finished
+        [self layoutIfNeeded];
+    }
+}
+
 #pragma mark - Override Methods
 
 - (void)setItems:(NSArray *)items {
@@ -50,16 +61,6 @@
     }
 }
 
-#pragma mark - Layout
-
-#ifdef FX_TabBarHeight
-- (CGSize)sizeThatFits:(CGSize)size {
-    
-    CGSize newSize = [super sizeThatFits:size];
-    newSize.height = FX_TabBarHeight;
-    return newSize;
-}
-#endif
 
 #pragma mark - Setter
 
@@ -100,6 +101,9 @@
     
     if (centerItem) {
         
+        if (_centerItem) {
+            [_centerItem removeFromSuperview];
+        }
         _centerItem = centerItem;
         [self addSubview:_centerItem];
     }
@@ -142,6 +146,15 @@
 }
 
 #pragma mark - Layout
+
+#ifdef FX_TabBarHeight
+- (CGSize)sizeThatFits:(CGSize)size {
+    
+    CGSize newSize = [super sizeThatFits:size];
+    newSize.height = FX_TabBarHeight;
+    return newSize;
+}
+#endif
 
 - (void)layoutSubviews {
     [super layoutSubviews];

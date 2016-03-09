@@ -24,4 +24,11 @@
 
 + (instancetype)tabBarWithCenterItem:(UIButton *)centerItem;
 
+/**
+ *  This method is mainly for initializing UITabBarController programmatically to add centerItem
+ *
+ *  @param centerItem centerItem
+ */
+- (void)insertCenterItem:(UIButton *)centerItem;
+
 @end

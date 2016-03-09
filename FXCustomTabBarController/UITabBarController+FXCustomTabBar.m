@@ -126,8 +126,14 @@
         centerItem.titleLabel.font = [UIFont systemFontOfSize:FX_ItemTitleFontSize];
 #endif
     }
+    
     [FXDeallocMonitor addMonitorToObj:centerItem withDesc:@"centerItem has been deallcated"];
     objc_setAssociatedObject(self, @selector(fx_centerItem), centerItem, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    FXTabBar *tabBar = (FXTabBar *)self.tabBar;
+    if ([tabBar isKindOfClass:[FXTabBar class]]) {
+        [tabBar insertCenterItem:centerItem];
+    }
 }
 
 - (UIButton *)fx_centerItem {
@@ -200,6 +206,11 @@
         UIGraphicsEndImageContext();
     }
 #endif
+    UITabBar *tabBar;
+    if ((tabBar = self.tabBar)) {
+        [tabBar setBackgroundImage:scaledImage];
+    }
+    
     objc_setAssociatedObject(self, @selector(fx_tabBarBackgroundImage), scaledImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

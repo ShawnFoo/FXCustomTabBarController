@@ -10,8 +10,6 @@
 #import "FXTabBarAppearanceConfigs.h"
 #import "FXDeallocMonitor.h"
 
-#define StringFromSelectorName(name) NSStringFromSelector(@selector(name))
-
 static void* kFXTabBarItemContext;
 
 @interface FXTabBarItem () {
@@ -341,7 +339,7 @@ static void* kFXTabBarItemContext;
         
         BOOL hasTitle = _tabBarItem.title.length > 0;
         
-        CGFloat y0 = hasTitle ? ceilf(self.frame.size.height*FX_ItemImageHeightRatio-size.height) : (self.frame.size.height-size.height);
+        CGFloat y0 = hasTitle ? ceilf(self.frame.size.height*FX_ItemImageHeightRatio-size.height) : (self.frame.size.height-size.height)/2.0;
         
 #ifdef FX_BadgeYAsixOffset
         y0 += FX_BadgeYAsixOffset;

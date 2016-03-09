@@ -10,6 +10,7 @@
 #import "HomeVM.h"
 #import "UITabBarController+FXCustomTabBar.h"
 #import "NSObject+FXAlertView.h"
+#import "DemoConfigs.h"
 
 static NSString *const kCellIndentifier = @"HomeBasicCell";
 
@@ -27,6 +28,7 @@ static NSString *const kCellIndentifier = @"HomeBasicCell";
     [super viewDidLoad];
     
     self.viewModel = [HomeVM new];
+    self.tableView.tableFooterView = [UIView new];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellIndentifier];
     
     // UIViewController: @property(nonatomic, readonly, strong) UITabBarController *tabBarController
@@ -131,43 +133,28 @@ static NSString *const kCellIndentifier = @"HomeBasicCell";
     }
 }
 
-- (void)clearCenterItemTitle {
+- (void)centerItemNoTitle {
     
     BOOL hasTitle = self.tabBarController.fx_centerItem.titleLabel.text.length;
     if (hasTitle) {
-        
-        UITabBarController *tabBarController = [self.storyboard instantiateViewControllerWithIdentifier:@"FXTabBarController"];
-        [tabBarController fx_setupCenterItemWithImage:[UIImage imageNamed:@"add"]];
-        
-        KeyWindow.rootViewController = tabBarController;
+        KeyWindow.rootViewController = [DemoConfigs controllerWithCenterItemAndNoTitle];
     }
 }
 
-- (void)clearAllItemTitle {
+- (void)allItemsNoTitle {
     
     BOOL hasTitle = self.navigationController.tabBarItem.title.length;
     if (hasTitle) {
-        
-        UITabBarController *tabBarController = [self.storyboard instantiateViewControllerWithIdentifier:@"FXTabBarController"];
-        [tabBarController fx_setupCenterItemWithImage:[UIImage imageNamed:@"add"]];
-        for (UIViewController *vc in tabBarController.viewControllers) {
-            vc.tabBarItem.title = @"";
-        }
-        
-        KeyWindow.rootViewController = tabBarController;
+        KeyWindow.rootViewController = [DemoConfigs controllerWithCenterItemAndNoTitles];
     }
 }
 
-- (void)setupTabBarBackground {
+- (void)setTabBarBackground {
 
     BOOL hasBackground = self.tabBarController.tabBar.backgroundImage;
     if (!hasBackground) {
         
-        UITabBarController *tabBarController = [self.storyboard instantiateViewControllerWithIdentifier:@"FXTabBarController"];
-        [tabBarController fx_setupCenterItemWithImage:[UIImage imageNamed:@"add"]];
-        [tabBarController fx_setTabBarBackgroundImage:[UIImage imageNamed:@"background"]];
-        
-        KeyWindow.rootViewController = tabBarController;
+        self.tabBarController.tabBar.backgroundImage = [UIImage imageNamed:@"background"];
     }
 }
 
@@ -180,9 +167,6 @@ static NSString *const kCellIndentifier = @"HomeBasicCell";
                        confirmHandler:nil
                         cancelHandler:^
     {
-        UITabBarController *tabBarController = [self.storyboard instantiateViewControllerWithIdentifier:@"FXTabBarController"];
-        [tabBarController fx_setupCenterItemWithImage:[UIImage imageNamed:@"add"] title:@"add"];
-        
         // In iOS7, If we show an alertView, then current topWindow is one of the windows system created for UIAlertView since its level is UIWindowLevelAlert
         // What amazing is, starting from iOS8.0, we can get normal level window directyly by [UIApplication sharedApplication].keyWindow in same situation
         // So my guess is the order of releasing alertView's windows are different between iOS7 and iOS8&9
@@ -194,7 +178,7 @@ static NSString *const kCellIndentifier = @"HomeBasicCell";
             if ([window.rootViewController isKindOfClass:[UITabBarController class]]) {
                 
                 NSLog(@"This one is our guy: %@", window);
-                window.rootViewController = tabBarController;
+                window.rootViewController = [DemoConfigs controllerWithCenterItemAndTitles];
                 break;
             }
         }

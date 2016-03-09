@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29C3AC601C9076130074809D /* DemoConfigs.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C3AC5F1C9076130074809D /* DemoConfigs.m */; };
 		29E3EEBA1C8F148A00862BCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E3EEB91C8F148A00862BCF /* main.m */; };
 		29E3EEBD1C8F148A00862BCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E3EEBC1C8F148A00862BCF /* AppDelegate.m */; };
 		29E3EEC51C8F148A00862BCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29E3EEC41C8F148A00862BCF /* Assets.xcassets */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29C3AC5E1C9076130074809D /* DemoConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoConfigs.h; sourceTree = "<group>"; };
+		29C3AC5F1C9076130074809D /* DemoConfigs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoConfigs.m; sourceTree = "<group>"; };
 		29E3EEB51C8F148A00862BCF /* ProgrammaticallyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProgrammaticallyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29E3EEB91C8F148A00862BCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29E3EEBB1C8F148A00862BCF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -84,6 +87,8 @@
 				29E3EEF91C8F158100862BCF /* Utils */,
 				29E3EEBB1C8F148A00862BCF /* AppDelegate.h */,
 				29E3EEBC1C8F148A00862BCF /* AppDelegate.m */,
+				29C3AC5E1C9076130074809D /* DemoConfigs.h */,
+				29C3AC5F1C9076130074809D /* DemoConfigs.m */,
 				29E3EEC41C8F148A00862BCF /* Assets.xcassets */,
 				29E3EEC61C8F148A00862BCF /* LaunchScreen.storyboard */,
 				29E3EEFA1C8F15FE00862BCF /* DemoPrefixHeader.pch */,
@@ -104,11 +109,11 @@
 		29E3EECF1C8F14BE00862BCF /* FXCustomTabBarController */ = {
 			isa = PBXGroup;
 			children = (
+				29E3EED41C8F14BE00862BCF /* FXTabBarAppearanceConfigs.h */,
 				29E3EED01C8F14BE00862BCF /* FXDeallocMonitor.h */,
 				29E3EED11C8F14BE00862BCF /* FXDeallocMonitor.m */,
 				29E3EED21C8F14BE00862BCF /* FXTabBar.h */,
 				29E3EED31C8F14BE00862BCF /* FXTabBar.m */,
-				29E3EED41C8F14BE00862BCF /* FXTabBarAppearanceConfigs.h */,
 				29E3EED51C8F14BE00862BCF /* FXTabBarItem.h */,
 				29E3EED61C8F14BE00862BCF /* FXTabBarItem.m */,
 				29E3EED71C8F14BE00862BCF /* UITabBarController+FXCustomTabBar.h */,
@@ -234,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29E3EEDC1C8F14BE00862BCF /* UITabBarController+FXCustomTabBar.m in Sources */,
+				29C3AC601C9076130074809D /* DemoConfigs.m in Sources */,
 				29E3EEDA1C8F14BE00862BCF /* FXTabBar.m in Sources */,
 				29E3EEBD1C8F148A00862BCF /* AppDelegate.m in Sources */,
 				29E3EEEF1C8F154400862BCF /* HomeVC.m in Sources */,
@@ -385,6 +391,7 @@
 				29E3EECE1C8F148A00862BCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

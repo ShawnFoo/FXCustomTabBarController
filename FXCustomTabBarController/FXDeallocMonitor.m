@@ -53,6 +53,8 @@
     }
     
     int randomKey;
+    
+    // It is true that swizzle method of dealloc in NSObject Category can do the same thing, but that will cause method polluted!
     objc_setAssociatedObject(obj, &randomKey, monitor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 #endif
 }

@@ -15,14 +15,14 @@ typedef void(^FXEventHandler)(void);
 @property (strong, readonly, nonatomic) UIButton *fx_centerItem;
 
 /**
- *  set up centerItem. (Please call this method before UITabBarController viewDidLoad)
+ *  set up centerItem
  *
- *  @param image            image for UIControlStateNormal
+ *  @param image image for UIControlStateNormal
  */
 - (void)fx_setupCenterItemWithImage:(UIImage *)image;
 
 /**
- *  set up centerItem. (Please call this method before UITabBarController viewDidLoad)
+ *  set up centerItem
  *
  *  @param image image for UIControlStateNormal
  *  @param title title for IControlStateNormal
@@ -30,7 +30,7 @@ typedef void(^FXEventHandler)(void);
 - (void)fx_setupCenterItemWithImage:(UIImage *)image title:(NSString *)title;
 
 /**
- *  set up centerItem. (Please call this method before UITabBarController viewDidLoad)
+ *  set up centerItem
  *
  *  @param image            image for UIControlStateNormal
  *  @param highlightedImage image for UIControlStateHighlighted
@@ -38,7 +38,7 @@ typedef void(^FXEventHandler)(void);
 - (void)fx_setupCenterItemWithImage:(UIImage *)image highligtedImage:(UIImage *)highlightedImage;
 
 /**
- *  set up centerItem. (Please call this method before UITabBarController viewDidLoad)
+ *  set up centerItem
  *
  *  @param image            image for UIControlStateNormal
  *  @param highlightedImage image for UIControlStateHighlighted
@@ -54,7 +54,7 @@ typedef void(^FXEventHandler)(void);
 - (void)fx_setCenterItemClickedEventHandler:(FXEventHandler)handler;
 
 /**
- *  set TabBar backgroundImage (Please call this method before UITabBarController viewDidLoad)
+ *  set TabBar backgroundImage 
  *
  *  @param image backgroundImage
  */

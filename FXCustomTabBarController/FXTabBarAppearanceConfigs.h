@@ -85,6 +85,8 @@ method_exchangeImplementations(originalMethod, swizzleMethod);\
 }\
 }
 
+#define StringFromSelectorName(name) NSStringFromSelector(@selector(name))
+
 //  ====================      PreDefined Macro End       ====================
 
 #endif /* FXTabBarAppearanceConfigs_h */

@@ -8,8 +8,7 @@
 
 #import "AppDelegate.h"
 #import "UITabBarController+FXCustomTabBar.h"
-#import "HomeVC.h"
-#import "SettingVC.h"
+#import "DemoConfigs.h"
 
 @interface AppDelegate ()
 
@@ -22,47 +21,14 @@
     // Override point for customization after application launch.
 
     self.window = [[UIWindow alloc] initWithFrame:MainScreen.bounds];
-    self.window.rootViewController = [self setupTabBarController];
+    self.window.rootViewController = [DemoConfigs controllerWithCenterItemAndTitles];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
     return YES;
 }
 
-- (UITabBarController *)setupTabBarController {
-    
-    HomeVC *homeVC = [[HomeVC alloc] init];
-    UINavigationController *naviHome = [[UINavigationController alloc] initWithRootViewController:homeVC];
-    homeVC.title = @"home";
-    homeVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"home"
-                                                      image:[UIImage imageNamed:@"home"]
-                                              selectedImage:[UIImage imageNamed:@"home_selected"]];
-    
-    UIViewController *calendarVC = [[UIViewController alloc] init];
-    UINavigationController *naviCalendar = [[UINavigationController alloc] initWithRootViewController:calendarVC];
-    calendarVC.title = @"calendar";
-    calendarVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"calendar"
-                                                          image:[UIImage imageNamed:@"calendar"]
-                                                  selectedImage:[UIImage imageNamed:@"calendar_selected"]];
-    
-    UIViewController *weatherVC = [[UIViewController alloc] init];
-    UINavigationController *naviWeather = [[UINavigationController alloc] initWithRootViewController:weatherVC];
-    weatherVC.title = @"weather";
-    weatherVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"weather"
-                                                         image:[UIImage imageNamed:@"cloud"]
-                                                 selectedImage:[UIImage imageNamed:@"cloud_selected"]];
-    
-    SettingVC *settingVC = [[SettingVC alloc] init];
-    UINavigationController *naviSetting = [[UINavigationController alloc] initWithRootViewController:settingVC];
-    settingVC.title = @"setting";
-    settingVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"setting"
-                                                         image:[UIImage imageNamed:@"setting"]
-                                                 selectedImage:[UIImage imageNamed:@"setting_selected"]];
-    
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    [tabBarController setViewControllers:@[naviHome, naviCalendar, naviWeather, naviSetting]];
-    return tabBarController;
-}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

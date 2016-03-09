@@ -130,7 +130,7 @@
     }
 }
 
-- (void)clearCenterItemTitle {
+- (void)centerItemNoTitle {
     
     BOOL hasTitle = self.tabBarController.fx_centerItem.titleLabel.text.length;
     if (hasTitle) {
@@ -142,7 +142,7 @@
     }
 }
 
-- (void)clearAllItemTitle {
+- (void)allItemsNoTitle {
     
     BOOL hasTitle = self.navigationController.tabBarItem.title.length;
     if (hasTitle) {
@@ -157,16 +157,12 @@
     }
 }
 
-- (void)setupTabBarBackground {
+- (void)setTabBarBackground {
 
     BOOL hasBackground = self.tabBarController.tabBar.backgroundImage;
     if (!hasBackground) {
         
-        UITabBarController *tabBarController = [self.storyboard instantiateViewControllerWithIdentifier:@"FXTabBarController"];
-        [tabBarController fx_setupCenterItemWithImage:[UIImage imageNamed:@"add"]];
-        [tabBarController fx_setTabBarBackgroundImage:[UIImage imageNamed:@"background"]];
-        
-        KeyWindow.rootViewController = tabBarController;
+        self.tabBarController.tabBar.backgroundImage = [UIImage imageNamed:@"background"];
     }
 }
 
