@@ -46,13 +46,12 @@
     // The cycleLife of tabBarController initialized programmatically is a little different from using storyboard.
     // I'm sure you can figure it out by making some break points
     
-    // viewDidLoad method will finished at this moment
+    // For UITabBarController, viewDidLoad method will finished at this moment
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     
     // when you set viewControllers, system will also trigger UITabBar's "setItems:animated:" method, to help you setItems
     [tabBarController setViewControllers:@[naviHome, naviCalendar, naviWeather, naviSetting]];
     
-    //
     [tabBarController fx_setupCenterItemWithImage:[UIImage imageNamed:@"add"] title:@"add"];
     
     return tabBarController;

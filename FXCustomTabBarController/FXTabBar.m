@@ -16,6 +16,9 @@
 @property (copy, nonatomic) NSArray *tabbarItems;
 @property (weak, nonatomic) UIButton *centerItem;
 @property (copy, nonatomic) NSString *centerItemTitle;
+@property (strong, nonatomic) UIView *slider;
+@property (assign, nonatomic) CGFloat evenItemWidth;
+@property (assign, nonatomic) NSUInteger centerItemIndex;
 
 @end
 
@@ -27,20 +30,12 @@
     
     FXTabBar *tabBar = [[FXTabBar alloc] init];
     tabBar.centerItem = centerItem;
+#if FX_SliderVisible
+    [tabBar setupSlider];
+#endif
     [FXDeallocMonitor addMonitorToObj:tabBar];
     
     return tabBar;
-}
-
-#pragma mark - CenterItem
-
-- (void)insertCenterItem:(UIButton *)centerItem {
-
-    if (centerItem) {
-        self.centerItem = centerItem;
-        // trigger layoutSubview in case changing centerItem after UITabBarController viewDidLayoutSubviews finished
-        [self layoutIfNeeded];
-    }
 }
 
 #pragma mark - Override Methods
@@ -61,8 +56,57 @@
     }
 }
 
+#pragma mark - CenterItem
 
-#pragma mark - Setter
+- (void)insertCenterItem:(UIButton *)centerItem {
+    
+    if (centerItem) {
+        self.centerItem = centerItem;
+        // trigger layoutSubview in case changing centerItem after UITabBarController viewDidLayoutSubviews finished
+        [self layoutIfNeeded];
+    }
+}
+
+#pragma mark - Slider
+
+- (void)setupSlider {
+    
+    self.slider = [[UIView alloc] init];
+#ifdef FX_SliderColor
+    _slider.backgroundColor = FX_SliderColor;
+#else
+    _slider.backgroundColor = [UIColor lightGrayColor];
+#endif
+    [self addSubview:_slider];
+}
+
+- (void)slideToIndex:(NSUInteger)index {
+
+    if (_slider && index < _tabbarItems.count) {
+        
+        BOOL hasCenterItem = _centerItem != nil;
+        BOOL overCenterIndex = index >= _centerItemIndex;
+        
+        CGFloat fromX = _slider.frame.origin.x;
+        CGFloat toX = hasCenterItem&&overCenterIndex ? (index+1)*_evenItemWidth : index*_evenItemWidth;
+        if (fromX == toX) { return; }
+        
+        CGRect toFrame = _slider.frame;
+        toFrame.origin.x = toX;
+        
+        [UIView animateWithDuration:0.33
+                              delay:0
+             usingSpringWithDamping:0.7
+              initialSpringVelocity:1
+                            options:0
+                         animations:^
+        {
+            _slider.frame = toFrame;
+        } completion:nil];
+    }
+}
+
+#pragma mark - Setter & Getter
 
 - (void)setTabbarItems:(NSArray *)tabbarItems {
     
@@ -85,7 +129,7 @@
 
 - (void)setSelectedItemIndex:(NSUInteger)selectedItemIndex {
     
-    if (selectedItemIndex < _tabbarItems.count) {
+    if (selectedItemIndex<_tabbarItems.count) {
         
         FXTabBarItem *lastItem = _tabbarItems[_selectedItemIndex];
         FXTabBarItem *curItem = _tabbarItems[selectedItemIndex];
@@ -94,6 +138,7 @@
         curItem.selected = YES;
         
         _selectedItemIndex = selectedItemIndex;
+        [self slideToIndex:_selectedItemIndex];
     }
 }
 
@@ -160,12 +205,19 @@
     [super layoutSubviews];
     
     BOOL hasCenterItem = _centerItem != nil;
+    BOOL hasAtLeastFiveItems = _tabbarItems.count >= 5;
+    
+    if (hasCenterItem && hasAtLeastFiveItems) {
+        LogD(@"You have more than 5 items! Only 5 items will be set up!");
+    }
     
     CGFloat barWidth = self.frame.size.width;
     CGFloat barHeight = self.frame.size.height;
     CGFloat itemWidth = hasCenterItem ? barWidth/(_tabbarItems.count + 1) : (barWidth/_tabbarItems.count);
+    if (!_evenItemWidth) { self.evenItemWidth = itemWidth; }
     
-    NSUInteger centerIndex = _tabbarItems.count / 2;
+    NSUInteger centerIndex = hasAtLeastFiveItems ? 2 : _tabbarItems.count / 2;
+    if (!_centerItemIndex) { self.centerItemIndex = centerIndex; }
 
     if (hasCenterItem) {
         
@@ -198,11 +250,18 @@
         _centerItem.frame = CGRectMake(centerItemX, centerItemY, itemWidth, centerItemHeight);
     }
     
-    for (int i = 0; i < _tabbarItems.count; i++) {
+    NSUInteger numOfItems = hasAtLeastFiveItems ? 5 : _tabbarItems.count;
+    for (int i = 0; i < numOfItems; i++) {
         
         FXTabBarItem *item = _tabbarItems[i];
         CGFloat itemX = (hasCenterItem && i>=centerIndex) ? itemWidth*(i+1) : itemWidth*i;
         item.frame = CGRectMake(itemX, 0, itemWidth, barHeight);
+    }
+    
+    if (_slider) {
+
+        CGFloat sliderX = _selectedItemIndex * itemWidth;
+        _slider.frame = CGRectMake(sliderX, 0, itemWidth, barHeight);
     }
 }
 

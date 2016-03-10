@@ -40,6 +40,12 @@
 // tiny badge color(hex number of rgb color), default is redColor
 #define FX_TinyBadgeColor UIColorFromHexRGB(0xFFA500)
 
+// slider visibility
+#define FX_SliderVisible true
+
+// slider color(hex number of rgb color), default is lightGrayColor
+#define FX_SliderColor UIColorFromHexRGB(0x87CEFA)
+
 // remove tabBar top shadow if this value true; otherwise, keep system style
 #define FX_RemoveTabBarTopShadow true
 
@@ -86,6 +92,13 @@ method_exchangeImplementations(originalMethod, swizzleMethod);\
 }
 
 #define StringFromSelectorName(name) NSStringFromSelector(@selector(name))
+
+// yes, that's right. Android style debug log😂
+#ifdef DEBUG
+#define LogD(format, ...) NSLog((@"\n%s [Line %d]\n" format), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#define LogD(...) do {} while(0)
+#endif
 
 //  ====================      PreDefined Macro End       ====================
 

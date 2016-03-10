@@ -185,11 +185,9 @@
 #if FX_RemoveTabBarTopShadow
     tabBar.shadowImage = [UIImage new];
 #endif
-    
     // KVC: replace the tabBar created by system with custom tabBar
     [self setValue:tabBar forKey:@"tabBar"];
     
-    tabBar.selectedItemIndex = self.selectedIndex;
     tabBar.fx_delegate = self;
 }
 
