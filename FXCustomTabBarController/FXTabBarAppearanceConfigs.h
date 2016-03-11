@@ -40,11 +40,14 @@
 // tiny badge color(hex number of rgb color), default is redColor
 #define FX_TinyBadgeColor UIColorFromHexRGB(0xFFA500)
 
-// slider visibility
-#define FX_SliderVisible true
+// slider visibility(set false won't create slider for you)
+#define FX_SliderVisible false
 
 // slider color(hex number of rgb color), default is lightGrayColor
 #define FX_SliderColor UIColorFromHexRGB(0x87CEFA)
+
+// slider spring damping: To smoothly decelerate the animation without oscillation, use a value of 1. Employ a damping ratio closer to zero to increase oscillation.
+#define FX_SliderDamping 0.66
 
 // remove tabBar top shadow if this value true; otherwise, keep system style
 #define FX_RemoveTabBarTopShadow true

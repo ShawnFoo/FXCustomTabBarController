@@ -94,9 +94,13 @@
         CGRect toFrame = _slider.frame;
         toFrame.origin.x = toX;
         
+        CGFloat damping = 0.7;
+#ifdef FX_SliderDamping
+        damping = FX_SliderDamping;
+#endif
         [UIView animateWithDuration:0.33
                               delay:0
-             usingSpringWithDamping:0.7
+             usingSpringWithDamping:damping
               initialSpringVelocity:1
                             options:0
                          animations:^
