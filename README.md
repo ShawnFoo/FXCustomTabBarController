@@ -28,6 +28,7 @@ Not only can you create TabBarController **`programmatically`**, but also can us
 
 ![tinyBadge](http://ww4.sinaimg.cn/mw690/9161297cgw1f1tdes2zkmj207i0dct9e.jpg)
 ![badgeValue](http://ww4.sinaimg.cn/mw690/9161297cgw1f1tdeq6bcsj207i0dc74z.jpg)
+![slider](http://ww1.sinaimg.cn/mw690/9161297cgw1f1uipytac8j207i0dcaa1.jpg)
 ![noTitle](http://ww3.sinaimg.cn/mw690/9161297cgw1f1tder955pj207i0dcjs2.jpg)
 ![background](http://ww1.sinaimg.cn/mw690/9161297cgw1f1tdejisftj207i0dcq3q.jpg)
 ![noTitles](http://ww1.sinaimg.cn/mw690/9161297cgw1f1tderi65hj207i0dcdgh.jpg)
