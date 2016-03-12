@@ -1,7 +1,7 @@
 <h1>FXCustomTabBarController<a href="#10">中文版</a></h1>
 
 ![build](https://img.shields.io/badge/build-passing-green.svg)
-![ObjC](https://img.shields.io/badge/Objective--C-7.0%2B-orange.svg)
+![ObjC](https://img.shields.io/badge/iOS-7.0%2B-orange.svg)
 ![pod](https://img.shields.io/badge/Cocoapods-v0.1-blue.svg)
 
 A category of UITabBarController with various custom styles for you to achieve any kinds of the tabBar you like with less work!
