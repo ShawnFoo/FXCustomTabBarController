@@ -41,7 +41,7 @@
 #define FX_TinyBadgeColor UIColorFromHexRGB(0xFFA500)
 
 // slider visibility(set false won't create slider for you)
-#define FX_SliderVisible false
+#define FX_SliderVisible true
 
 // slider color(hex number of rgb color), default is lightGrayColor
 #define FX_SliderColor UIColorFromHexRGB(0x87CEFA)
