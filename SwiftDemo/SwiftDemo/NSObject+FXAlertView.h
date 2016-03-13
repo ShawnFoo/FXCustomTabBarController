@@ -24,12 +24,12 @@
  *  @param confirmHandler   点击确定按钮执行的block, 不需要则设置nil
  *  @param cancelHandler    点击取消按钮执行的block, 不需要则设置nil
  */
-- (void)presentConfirmViewWithTitle:(NSString *)title
-                            message:(NSString *)message
-                 confirmButtonTitle:(NSString *)confirmTitle
-                  cancelButtonTitle:(NSString *)cancelTitle
-                     confirmHandler:(void (^)(void))confirmHandler
-                      cancelHandler:(void (^)(void))cancelHandler;
+- (void)presentConfirmViewWithTitle:(nonnull NSString *)title
+                            message:(nonnull NSString *)message
+                 confirmButtonTitle:(nullable NSString *)confirmTitle
+                  cancelButtonTitle:(nullable NSString *)cancelTitle
+                     confirmHandler:(nullable void (^)(void))confirmHandler
+                      cancelHandler:(nullable void (^)(void))cancelHandler;
 
 /**
  *  弹出系统自带 确认窗口(两个按钮:确定和取消)或消息通知窗口(一个按钮:取消功能); 兼容iOS7及以上版本,
@@ -43,13 +43,13 @@
  *  @param confirmHandler 点击确定按钮执行的block, 不需要则设置nil
  *  @param cancelHandler  点击取消按钮执行的block, 不需要则设置nil
  */
-- (void)presentConfirmViewInController:(id)controller
-                          confirmTitle:(NSString *)title
-                               message:( NSString *)message
-                    confirmButtonTitle:(NSString *)confirmTitle
-                     cancelButtonTitle:(NSString *)cancelTitle
-                        confirmHandler:(void (^)(void))confirmHandler
-                         cancelHandler:(void (^)(void))cancelHandler;
+- (void)presentConfirmViewInController:(nullable id)controller
+                          confirmTitle:(nonnull NSString *)title
+                               message:(nonnull NSString *)message
+                    confirmButtonTitle:(nullable NSString *)confirmTitle
+                     cancelButtonTitle:(nullable NSString *)cancelTitle
+                        confirmHandler:(nullable void (^)(void))confirmHandler
+                         cancelHandler:(nullable void (^)(void))cancelHandler;
 
 /**
  *  `简单`弹出系统自带 选择表单; 兼容iOS7及以上版本; iOS7无需另外实现UIActionSheetDelegate的代理方法, 该Catogory会处理..
@@ -60,11 +60,11 @@
  *  @param firstSelBTHandler  第一个选择按钮触发的Handler Block
  *  @param secondSelBTHandler 第二个选择按钮触发的Handler Block
  */
-- (void)presentSelectSheetWithTitle:(NSString *)title
-                  cancelButtonTitle:(NSString *)cancelTitle
-          twoOtherButtonTitlesArray:(NSArray *)twoOtherTitleArray
-                     firstBTHandler:(void (^)(void))firstBTHandler
-                    secondBTHandler:(void (^)(void))secondBTHandler;
+- (void)presentSelectSheetWithTitle:(nonnull NSString *)title
+                  cancelButtonTitle:(nonnull NSString *)cancelTitle
+          twoOtherButtonTitlesArray:(nonnull NSArray<NSString *> *)twoOtherTitleArray
+                     firstBTHandler:(nullable void (^)(void))firstBTHandler
+                    secondBTHandler:(nullable void (^)(void))secondBTHandler;
 
 /**
  *  弹出系统自带 选择表单, 需指定presentingController; 兼容iOS7及以上版本; iOS7无需另外实现UIActionSheetDelegate的代理方法, 该Catogory会处理..
@@ -76,12 +76,12 @@
  *  @param firstSelBTHandler  第一个选择按钮触发的Handler Block
  *  @param secondSelBTHandler 第二个选择按钮触发的Handler Block
  */
-- (void)presentSelectSheetByController:(id)controller
-                            sheetTitle:(NSString *)title
-                     cancelButtonTitle:(NSString *)cancelTitle
-             twoOtherButtonTitlesArray:(NSArray *)twoOtherTitleArray
-                        firstBTHandler:(void (^)(void))firstBTHandler
-                       secondBTHandler:(void (^)(void))secondBTHandler;
+- (void)presentSelectSheetByController:(nullable id)controller
+                            sheetTitle:(nonnull NSString *)title
+                     cancelButtonTitle:(nonnull NSString *)cancelTitle
+             twoOtherButtonTitlesArray:(nonnull NSArray<NSString *> *)twoOtherTitleArray
+                        firstBTHandler:(nullable void (^)(void))firstBTHandler
+                       secondBTHandler:(nullable void (^)(void))secondBTHandler;
 
 @end
 

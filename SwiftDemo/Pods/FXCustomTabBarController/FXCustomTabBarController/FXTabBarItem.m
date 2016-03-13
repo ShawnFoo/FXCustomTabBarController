@@ -29,22 +29,22 @@ static void* kFXTabBarItemContext;
     
     FXTabBarItem *item = nil;
     if ([tabBarItem isKindOfClass:[UITabBarItem class]]) {
-
+        
         item = [FXTabBarItem buttonWithType:UIButtonTypeCustom];
         [FXDeallocMonitor addMonitorToObj:item];
-
+        
         item.imageView.contentMode = UIViewContentModeCenter;
         item.titleLabel.textAlignment = NSTextAlignmentCenter;
         item.backgroundColor = [UIColor clearColor];
         
         // custom configs
-#ifdef FX_ItemTitleFontSize 
+#ifdef FX_ItemTitleFontSize
         item.titleLabel.font = [UIFont systemFontOfSize:FX_ItemTitleFontSize];
 #endif
         [item setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
         [item addTarget:item action:@selector(userDidClickItem:) forControlEvents:UIControlEventTouchUpInside];
-
+        
         // KVO
         item.tabBarItem = tabBarItem;
         NSKeyValueObservingOptions options = NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew;
@@ -115,7 +115,7 @@ static void* kFXTabBarItemContext;
 #pragma mark - KVO
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-
+    
     if (context == &kFXTabBarItemContext) {
         
         if ([keyPath isEqualToString:StringFromSelectorName(badgeValue)]) {
@@ -127,14 +127,14 @@ static void* kFXTabBarItemContext;
             [self setImage:_tabBarItem.image forState:UIControlStateNormal];
         }
         else if ([keyPath isEqualToString:StringFromSelectorName(selectedImage)]) {
-
+            
             [self setImage:_tabBarItem.selectedImage forState:UIControlStateSelected];
         }
         else if ([keyPath isEqualToString:StringFromSelectorName(title)]) {
             
             if (!_tabBarItem.title.length) { return; }
             [self setTitle:_tabBarItem.title forState:UIControlStateNormal];
-#ifdef FX_ItemTitleColor 
+#ifdef FX_ItemTitleColor
             NSDictionary *attrDic = @{
                                       NSForegroundColorAttributeName: FX_ItemTitleColor
                                       };
@@ -144,8 +144,8 @@ static void* kFXTabBarItemContext;
 #endif
 #ifdef FX_ItemSelectedTitleColor
             NSDictionary *_attrDic = @{
-                                      NSForegroundColorAttributeName: FX_ItemSelectedTitleColor
-                                      };
+                                       NSForegroundColorAttributeName: FX_ItemSelectedTitleColor
+                                       };
             NSAttributedString *_attrStr = [[NSAttributedString alloc] initWithString:_tabBarItem.title
                                                                            attributes:_attrDic];
             [self setAttributedTitle:_attrStr forState:UIControlStateSelected];
@@ -176,7 +176,7 @@ static void* kFXTabBarItemContext;
 #pragma mark - Action
 
 - (void)userDidClickItem:(id)sender {
-
+    
     self.selected = !self.selected;
 }
 
@@ -192,7 +192,7 @@ static void* kFXTabBarItemContext;
         
         _badgeLb = [UILabel new];
         [FXDeallocMonitor addMonitorToObj:_badgeLb withDesc:@"badgeLabel has been deallocated"];
-         _badgeLb.font = [UIFont systemFontOfSize:FX_ItemBadgeFontSize];
+        _badgeLb.font = [UIFont systemFontOfSize:FX_ItemBadgeFontSize];
         _badgeLb.textColor = [UIColor whiteColor];
         _badgeLb.textAlignment = NSTextAlignmentCenter;
 #ifdef FX_BadgeBackgroundColor
@@ -246,10 +246,10 @@ static void* kFXTabBarItemContext;
               initialSpringVelocity:1
                             options:0
                          animations:^
-        {
-            _badgeLb.alpha = 1.0;
-            _badgeLb.transform = CGAffineTransformIdentity;
-        } completion:nil];
+         {
+             _badgeLb.alpha = 1.0;
+             _badgeLb.transform = CGAffineTransformIdentity;
+         } completion:nil];
     }
     else {// if existed, only change the frame of item
         
@@ -259,9 +259,9 @@ static void* kFXTabBarItemContext;
               initialSpringVelocity:1
                             options:0
                          animations:^
-        {
-            _badgeLb.frame = CGRectMake(badgeX, badgeY, badgeSize.width, badgeSize.height);
-        } completion:nil];
+         {
+             _badgeLb.frame = CGRectMake(badgeX, badgeY, badgeSize.width, badgeSize.height);
+         } completion:nil];
     }
     // update the badge value!
     
@@ -281,13 +281,13 @@ static void* kFXTabBarItemContext;
                           duration:0.3
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^
-        {
-            _badgeLb.transform = CGAffineTransformMakeScale(0, 0);
-            _badgeLb.alpha = 0.5;
-        } completion:^(BOOL finished) {
-            [_badgeLb removeFromSuperview];
-            _badgeLb = nil;
-        }];
+         {
+             _badgeLb.transform = CGAffineTransformMakeScale(0, 0);
+             _badgeLb.alpha = 0.5;
+         } completion:^(BOOL finished) {
+             [_badgeLb removeFromSuperview];
+             _badgeLb = nil;
+         }];
     }
 }
 
@@ -296,7 +296,7 @@ static void* kFXTabBarItemContext;
     CGSize size = [value sizeWithAttributes:@{
                                               NSFontAttributeName: [UIFont systemFontOfSize:FX_ItemBadgeFontSize]
                                               }];
-
+    
     BOOL addPadding = YES;
     // make sure the item is a round if the length of badge value is too short
     if (size.height > size.width && value.length == 1) {
@@ -358,17 +358,17 @@ static void* kFXTabBarItemContext;
               initialSpringVelocity:1
                             options:0
                          animations:^
-        {
-            _tinyBadge.transform = CGAffineTransformIdentity;
-            _tinyBadge.alpha = 1.0;
-        } completion:nil];
+         {
+             _tinyBadge.transform = CGAffineTransformIdentity;
+             _tinyBadge.alpha = 1.0;
+         } completion:nil];
     }
 }
 
 - (void)dismissTinyBadge {
     
     if (_tinyBadge) {
-
+        
         [UIView animateWithDuration:0.3 animations:^{
             _tinyBadge.alpha = 0.0;
             _tinyBadge.transform = CGAffineTransformMakeScale(0.1, 0.1);

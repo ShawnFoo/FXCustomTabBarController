@@ -1,0 +1,6 @@
+framework module FXCustomTabBarController {
+  umbrella header "FXCustomTabBarController-umbrella.h"
+
+  export *
+  module * { export * }
+}

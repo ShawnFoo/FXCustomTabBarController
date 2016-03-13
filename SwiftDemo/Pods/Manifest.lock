@@ -1,0 +1,10 @@
+PODS:
+  - FXCustomTabBarController (0.1)
+
+DEPENDENCIES:
+  - FXCustomTabBarController (~> 0.1)
+
+SPEC CHECKSUMS:
+  FXCustomTabBarController: 1825f247e120a59d1127f223c0cac68ce77bce22
+
+COCOAPODS: 0.39.0

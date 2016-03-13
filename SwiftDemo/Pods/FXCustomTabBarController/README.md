@@ -1,9 +1,8 @@
 <h1>FXCustomTabBarController<a href="#10">中文版</a></h1>
 
 ![build](https://img.shields.io/badge/build-passing-green.svg)
-![ObjC](https://img.shields.io/badge/iOS-7.0%2B-orange.svg)
-![pod](https://img.shields.io/badge/Cocoapods-v0.1.1-blue.svg)
-![compatible](https://img.shields.io/badge/compatible-Objective--C%2FSwift-yellow.svg)
+![ObjC](https://img.shields.io/badge/Objective--C-7.0%2B-orange.svg)
+![pod](https://img.shields.io/badge/Cocoapods-v0.1-blue.svg)
 
 A category of UITabBarController with various custom styles for you to achieve any kinds of the tabBar you like with less work!
 
@@ -12,11 +11,10 @@ A category of UITabBarController with various custom styles for you to achieve a
 2. [Preview](#2)
 3. [Installation](#3)
 4. [How to use it](#4)
-5. [Demos](#5)
-6. [Xcode6.4 Issue For StoryBoard](#6)
+5. [Xcode6.4 Issue For StoryBoard](#5)
 
 <h2 id="1">Custom Styles</h2>
-Not only can you create TabBarController **`programmatically`**, but also can use **`StoryBoard`** to set up TabBarController, also tabBarItem's title and images!
+Not only can you create TabBarController **`programmatically`**, but also can use **`storyboard`** to set up TabBarController, to set tabItem's title and images, to custom your style! Two demos implemented in both ways.
 
 * CenterItem(Image、HighlightedImage、Title)
 * UITabBar(Height、Background)
@@ -37,40 +35,20 @@ Not only can you create TabBarController **`programmatically`**, but also can us
 
 <h2 id="3">Installation</h2>
 
-####For Objective-C Project
-
-#####Cocoapods(iOS7+)
+####Cocoapods(iOS7+)
 
 1. Add these lines below to your Podfile 
 	
 	```
 	platform :ios, '7.0'
-	pod 'FXCustomTabBarController', '~> 0.1.1'
+	pod 'FXCustomTabBarController', '~> 0.1'
 	```
 2. Install the pod by running `pod install`
 
-#####Manually(iOS6+ In theory, No test for iOS6)
+####Manually(iOS6+ In theory, No test for iOS6)
 
 Drag `FXCustomTabBarController` document to your project
 
-####For Swift Project
-
-#####Cocoapods(iOS8+)
-
-1. Add these lines below to your Podfile 
-	
-	```
-	platform :ios, '8.0'
-	use_frameworks!
-	pod 'FXCustomTabBarController', '~> 0.1.1'
-	```
-2. pod install
-3. import FXCustomTabBarController
-
-#####Manually(iOS7+)
-
-1. Drag `FXCustomTabBarController` document to your project
-2. Add ProjectName-Bridging-Header.h also import UITabBarController+FXCustomTabBar.h
 
 <h2 id="4">How to use it</h2>
 
@@ -154,11 +132,7 @@ Make sure you have already `#import UITabBarController+FXCustomTabBar.h`
 #define FX_TinyBadgeRadius 3
 ```
 
-<h2 id="5">Demo</h2>
-
-There are three demos in all. Two of them(ProgrammaticallyDemo、StoryBoardDemo)are Objective-C projects. The remaining one, SwiftDemo, is Swift project.
-
-<h2 id="6">Xcode6.4 Issue For StoryBoard</h2>
+<h2 id="5">Xcode6.4 Issue For StoryBoard</h2>
 
 For Xcode6.4,You might meet this issue when setting seletedImage for TabBarItem by StoryBoard: 
 
@@ -179,25 +153,22 @@ Here is the solution:
 2. [图片预览](#2)
 3. [安装方式](#12)
 4. [如何使用](#13)
-5. [Demo](#5)
-6. [XCode6.4中StoryBoard设置TabBarItem选中状态的图片的方法](#6)
+5. [XCode6.4中StoryBoard设置TabBarItem选中状态的图片的方法](#5)
 
 <h2 id="11">自定义风格</h2>
-不仅可以通过`代码`创建UITabBarController, 还支持使用`Storyboard`创建UITabBarController, 及设置其tabBarItem的标题、图片(选中状态的图片) 以实现你自己的Style. 
+不仅可以通过`代码`创建UITabBarController, 还支持使用`Storyboard`创建UITabBarController, 及设置其tabBarItem的标题、图片(选中状态的图片) 以实现你自己的风格. 有这两种方式的Demo可供参考.
 
 * CenterItem(Image、HighlightedImage、Title)
-* UITabBar(高度、背景图片)
-* TabBarItem(原图、TitleColor、SelectedTitleColor、TitleFontSize)
-* 普通的Badge(BackgroundColor、ValueColor、FontSize)
-* 小圆点(Color、Radius)
-* 滑块(Color), 点哪滑哪, 效果可看Demo
+* UITabBar(Height、Background)
+* TabBarItem(OriginalImage、TitleColor、SelectedTitleColor、TitleFontSize)
+* NormalBadge(BackgroundColor、ValueColor、FontSize)
+* TinyBadge(Color、Radius)
+* Slider(Color)滑块, 点哪滑哪, 效果可看Demo
 * 等等..
 
-<h2 id="12">安装方式</h2>
+<h2 id="3">安装方式</h2>
 
-####Objective-C 项目
-
-#####Cocoapods(iOS7+)
+####Cocoapods(iOS7+)
 
 1. 在Podfile中添加如下信息
 	
@@ -207,30 +178,10 @@ Here is the solution:
 	```
 2. 项目目录中运行终端指令 `pod install`
 
-#####Manually(理论上支持iOS6+, iOS6无测试)
+####Manually(理论上支持iOS6+, iOS6无测试)
 
 拖动 `FXCustomTabBarController` 文件夹到你的项目中
-
-####Swift 项目
-
-#####Cocoapods(iOS8+)
-
-1. 在Podfile中添加如下信息
-	
-	```
-	platform :ios, '8.0'
-	use_frameworks!
-	pod 'FXCustomTabBarController', '~> 0.1.1'
-	```
-2. pod install
-3. import FXCustomTabBarController
-
-#####Manually(iOS7+)
-
-1. 拖动 `FXCustomTabBarController` 文件夹到你的项目中
-2. 添加 ProjectName-Bridging-Header.h 文件(Xcode可能会帮助你创建桥梁文件, 否则要自己创建并添加关联了), 同时在其中 import UITabBarController+FXCustomTabBar.h
-
-<h2 id="13">如何使用</h2>
+<h2 id="4">如何使用</h2>
 
 ###总体分这三步
 
