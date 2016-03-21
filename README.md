@@ -16,7 +16,7 @@ A category of UITabBarController with various custom styles for you to achieve a
 6. [Xcode6.4 Issue For StoryBoard](#6)
 
 <h2 id="1">Custom Styles</h2>
-Not only can you create TabBarController **`programmatically`**, but also can use **`StoryBoard`** to set up TabBarController, also tabBarItem's title and images!
+Not only can you create TabBarController **`programmatically`**, but also can use **`StoryBoard`** to set up TabBarController, and tabBarItem's title as well as images!
 
 * CenterItem(Image、HighlightedImage、Title)
 * UITabBar(Height、Background)
@@ -183,7 +183,7 @@ Here is the solution:
 6. [XCode6.4中StoryBoard设置TabBarItem选中状态的图片的方法](#6)
 
 <h2 id="11">自定义风格</h2>
-不仅可以通过`代码`创建UITabBarController, 还支持使用`Storyboard`创建UITabBarController, 及设置其tabBarItem的标题、图片(选中状态的图片) 以实现你自己的Style. 
+不仅可以通过`代码`创建UITabBarController, 还支持使用`Storyboard`创建UITabBarController, 及设置其tabBarItem的标题、图片(选中状态的图片) 以实现自定义TabBar. 
 
 * CenterItem(Image、HighlightedImage、Title)
 * UITabBar(高度、背景图片)
