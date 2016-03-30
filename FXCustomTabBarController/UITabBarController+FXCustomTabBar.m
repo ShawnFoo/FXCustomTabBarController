@@ -178,43 +178,15 @@
     }
     
     FXTabBar *tabBar = [FXTabBar tabBarWithCenterItem:self.fx_centerItem];
-    UIImage *backgroundImage;
-    if ((backgroundImage = self.fx_tabBarBackgroundImage)) {
-        tabBar.backgroundImage = backgroundImage;
-    }
-#if FX_RemoveTabBarTopShadow
-    tabBar.shadowImage = [UIImage new];
-#endif
     // KVC: replace the tabBar created by system with custom tabBar
     [self setValue:tabBar forKey:@"tabBar"];
     
-    tabBar.fx_delegate = self;
-}
-
-- (void)fx_setTabBarBackgroundImage:(UIImage *)image {
-    NSParameterAssert(image);
-    
-    UIImage *scaledImage = image;
-#ifdef FX_TabBarHeight
-    if (FX_TabBarHeight != image.size.height) {
-        CGSize size = CGSizeMake(image.size.width, FX_TabBarHeight);
-        UIGraphicsBeginImageContextWithOptions(size, YES, 0);
-        [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
-        scaledImage =  UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-    }
+#if FX_RemoveTabBarTopShadow
+    [[UITabBar appearance] setShadowImage:[UIImage new]];
+    [[UITabBar appearance] setBackgroundImage:[UIImage new]];
 #endif
-    UITabBar *tabBar;
-    if ((tabBar = self.tabBar)) {
-        [tabBar setBackgroundImage:scaledImage];
-    }
     
-    objc_setAssociatedObject(self, @selector(fx_tabBarBackgroundImage), scaledImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (UIImage *)fx_tabBarBackgroundImage {
-
-    return objc_getAssociatedObject(self, _cmd);
+    tabBar.fx_delegate = self;
 }
 
 #pragma mark - FXTabBarDelegate
@@ -222,7 +194,6 @@
 - (void)fx_tabBar:(UIView *)tabBar didSelectItemAtIndex:(NSUInteger)index {
     
     if (index < self.viewControllers.count) {
-        
         UIViewController *vc = self.viewControllers[index];
         [self fx_setSelectedViewController:vc];
     }

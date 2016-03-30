@@ -53,13 +53,6 @@ typedef void(^FXEventHandler)(void);
  */
 - (void)fx_setCenterItemClickedEventHandler:(FXEventHandler)handler;
 
-/**
- *  set TabBar backgroundImage 
- *
- *  @param image backgroundImage
- */
-- (void)fx_setTabBarBackgroundImage:(UIImage *)image;
-
 @end
 
 #pragma mark - UITabBarItem+TinyBadge

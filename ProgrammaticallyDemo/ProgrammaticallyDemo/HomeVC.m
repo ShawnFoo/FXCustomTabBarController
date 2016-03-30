@@ -150,12 +150,8 @@ static NSString *const kCellIndentifier = @"HomeBasicCell";
 }
 
 - (void)setTabBarBackground {
-
-    BOOL hasBackground = self.tabBarController.tabBar.backgroundImage;
-    if (!hasBackground) {
-        
-        self.tabBarController.tabBar.backgroundImage = [UIImage imageNamed:@"background"];
-    }
+    
+    self.tabBarController.tabBar.backgroundImage = [UIImage imageNamed:@"background"];
 }
 
 - (void)releaseUITabBarController {

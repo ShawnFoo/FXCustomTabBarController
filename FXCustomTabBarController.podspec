@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "FXCustomTabBarController"
-  s.version      = "0.1.1"
+  s.version      = "0.1.2"
   s.summary      = "A category of UITabBarController with various custom styles for you to achieve any kinds of the tabBar you like!"
   s.description  = <<-DESC
   					A category of UITabBarController with various custom styles for you to achieve any kinds of the tabBar you like with less work!

@@ -151,10 +151,8 @@ extension HomeVC {
     
     @objc private func setTabBarBackground() {
         
-        if self.tabBarController?.tabBar.backgroundImage != nil {
-            if let backgroundImage = UIImage(named: "background") {
-                self.tabBarController?.tabBar.backgroundImage = backgroundImage
-            }
+        if let backgroundImage = UIImage(named: "background") {
+            self.tabBarController?.tabBar.backgroundImage = backgroundImage
         }
     }
     

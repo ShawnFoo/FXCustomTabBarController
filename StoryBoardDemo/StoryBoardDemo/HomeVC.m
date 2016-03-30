@@ -25,6 +25,7 @@
     [super viewDidLoad];
     
     self.viewModel = [HomeVM new];
+    self.tableView.tableFooterView = [UIView new];
     
     // UIViewController: @property(nonatomic, readonly, strong) UITabBarController *tabBarController
     // Although retain cycle did exist here, but it's no need to use weak strong dance here. Before UITabBarController is deallocated, it will break the reference to its child VC(include self), so the retain cycle won't keep. You can clicked TestReleaseUITabBarController cell to test it : ]
@@ -158,12 +159,8 @@
 }
 
 - (void)setTabBarBackground {
-
-    BOOL hasBackground = self.tabBarController.tabBar.backgroundImage;
-    if (!hasBackground) {
-        
-        self.tabBarController.tabBar.backgroundImage = [UIImage imageNamed:@"background"];
-    }
+    
+    self.tabBarController.tabBar.backgroundImage = [UIImage imageNamed:@"background"];
 }
 
 - (void)releaseUITabBarController {

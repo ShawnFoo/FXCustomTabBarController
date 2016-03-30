@@ -2,7 +2,7 @@
 
 ![build](https://img.shields.io/badge/build-passing-green.svg)
 ![ObjC](https://img.shields.io/badge/iOS-7.0%2B-orange.svg)
-![pod](https://img.shields.io/badge/Cocoapods-v0.1.1-blue.svg)
+![pod](https://img.shields.io/badge/Cocoapods-v0.1.2-blue.svg)
 ![compatible](https://img.shields.io/badge/compatible-Objective--C%2FSwift-yellow.svg)
 
 A category of UITabBarController with various custom styles for you to achieve any kinds of the tabBar you like with less work!
@@ -45,7 +45,7 @@ Not only can you create TabBarController **`programmatically`**, but also can us
 	
 	```
 	platform :ios, '7.0'
-	pod 'FXCustomTabBarController', '~> 0.1.1'
+	pod 'FXCustomTabBarController'
 	```
 2. Install the pod by running `pod install`
 
@@ -62,7 +62,7 @@ Drag `FXCustomTabBarController` document to your project
 	```
 	platform :ios, '8.0'
 	use_frameworks!
-	pod 'FXCustomTabBarController', '~> 0.1.1'
+	pod 'FXCustomTabBarController'
 	```
 2. pod install
 3. import FXCustomTabBarController
@@ -94,8 +94,6 @@ Make sure you have already `#import UITabBarController+FXCustomTabBar.h`
 - (void)fx_setupCenterItemWithImage:(UIImage *)image highligtedImage:(UIImage *)highlightedImage title:(NSString *)title;
 
 - (void)fx_setCenterItemClickedEventHandler:(FXEventHandler)handler;
-
-- (void)fx_setTabBarBackgroundImage:(UIImage *)image;
 ````
 
 ### FXTabBarAppearanceConfigs
@@ -203,7 +201,7 @@ Here is the solution:
 	
 	```
 	platform :ios, '7.0'
-	pod 'FXCustomTabBarController', '~> 0.1'
+	pod 'FXCustomTabBarController'
 	```
 2. 项目目录中运行终端指令 `pod install`
 
@@ -220,7 +218,7 @@ Here is the solution:
 	```
 	platform :ios, '8.0'
 	use_frameworks!
-	pod 'FXCustomTabBarController', '~> 0.1.1'
+	pod 'FXCustomTabBarController'
 	```
 2. pod install
 3. import FXCustomTabBarController
@@ -252,8 +250,6 @@ Here is the solution:
 - (void)fx_setupCenterItemWithImage:(UIImage *)image highligtedImage:(UIImage *)highlightedImage title:(NSString *)title;
 
 - (void)fx_setCenterItemClickedEventHandler:(FXEventHandler)handler;
-
-- (void)fx_setTabBarBackgroundImage:(UIImage *)image;
 ````
 
 ### FXTabBarAppearanceConfigs 各种参数配置 头文件
