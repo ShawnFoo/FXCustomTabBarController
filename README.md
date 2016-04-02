@@ -28,6 +28,7 @@ Not only can you create TabBarController **`programmatically`**, but also can us
 
 <h2 id="2">Preview</h2>
 
+![gif](http://ww2.sinaimg.cn/mw690/9161297cgw1f2i7yabi1hg20fd0rk4qp.gif)
 ![tinyBadge](http://ww4.sinaimg.cn/mw690/9161297cgw1f1tdes2zkmj207i0dct9e.jpg)
 ![badgeValue](http://ww4.sinaimg.cn/mw690/9161297cgw1f1tdeq6bcsj207i0dc74z.jpg)
 ![slider](http://ww1.sinaimg.cn/mw690/9161297cgw1f1uipytac8j207i0dcaa1.jpg)
