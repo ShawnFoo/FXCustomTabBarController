@@ -1,4 +1,4 @@
-<h1>FXCustomTabBarController<a href="#10">中文版</a></h1>
+<h1>FXCustomTabBarController <a href="#10">中文版</a> </h1>
 
 ![build](https://img.shields.io/badge/build-passing-green.svg)
 ![ObjC](https://img.shields.io/badge/iOS-7.0%2B-orange.svg)
@@ -32,9 +32,9 @@ Not only can you create TabBarController **`programmatically`**, but also can us
 
 <h2 id="3">Installation</h2>
 
-####For Objective-C Project
+#### For Objective-C Project
 
-#####Cocoapods(iOS7+)
+##### Cocoapods(iOS7+)
 
 1. Add these lines below to your Podfile 
 	
@@ -44,13 +44,13 @@ Not only can you create TabBarController **`programmatically`**, but also can us
 	```
 2. Install the pod by running `pod install`
 
-#####Manually(iOS6+ In theory, No test for iOS6)
+##### Manually(iOS6+ In theory, No test for iOS6)
 
 Drag `FXCustomTabBarController` document to your project
 
-####For Swift Project
+#### For Swift Project
 
-#####Cocoapods(iOS8+)
+##### Cocoapods(iOS8+)
 
 1. Add these lines below to your Podfile 
 	
@@ -62,14 +62,14 @@ Drag `FXCustomTabBarController` document to your project
 2. pod install
 3. import FXCustomTabBarController
 
-#####Manually(iOS7+)
+##### Manually(iOS7+)
 
 1. Drag `FXCustomTabBarController` document to your project
 2. Add ProjectName-Bridging-Header.h also import UITabBarController+FXCustomTabBar.h
 
 <h2 id="4">How to use it</h2>
 
-###General
+### General
 
 1. Create UITabBarController and set its viewControllers with each UITabBarItem by Storyboard or Programmatically way
 2. Set up centerItem or tabBar's backgroundImage by calling the methods declared in the header file of UITabBarController+FXCustomTabBar category
@@ -188,9 +188,9 @@ Here is the solution:
 
 <h2 id="12">安装方式</h2>
 
-####Objective-C 项目
+#### Objective-C 项目
 
-#####Cocoapods(iOS7+)
+##### Cocoapods(iOS7+)
 
 1. 在Podfile中添加如下信息
 	
@@ -200,13 +200,13 @@ Here is the solution:
 	```
 2. 项目目录中运行终端指令 `pod install`
 
-#####Manually(理论上支持iOS6+, iOS6无测试)
+##### Manually(理论上支持iOS6+, iOS6无测试)
 
 拖动 `FXCustomTabBarController` 文件夹到你的项目中
 
-####Swift 项目
+#### Swift 项目
 
-#####Cocoapods(iOS8+)
+##### Cocoapods(iOS8+)
 
 1. 在Podfile中添加如下信息
 	
@@ -218,14 +218,14 @@ Here is the solution:
 2. pod install
 3. import FXCustomTabBarController
 
-#####Manually(iOS7+)
+##### Manually(iOS7+)
 
 1. 拖动 `FXCustomTabBarController` 文件夹到你的项目中
 2. 添加 ProjectName-Bridging-Header.h 文件(Xcode可能会帮助你创建桥梁文件, 否则要自己创建并添加关联了), 同时在其中 import UITabBarController+FXCustomTabBar.h
 
 <h2 id="13">如何使用</h2>
 
-###总体分这三步
+### 总体分这三步
 
 1. 通过代码或者Stroyboard创建好UITabBarController
 2. 在通过类簇提供的方法设置CenterItem、CenterItem的点击事件handlerBlock或者TabBar背景图片
